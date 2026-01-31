@@ -1,59 +1,12 @@
 # CLAUDE.md Template for Product Context
 
-Add the following section to your project's CLAUDE.md file.
+`/product init` 会自动追加以下内容到项目的 CLAUDE.md 文件。
+
+如果你需要手动添加，复制以下内容：
 
 ---
 
 ## Product Context
 
-This project uses [Product Context](https://github.com/user/product-context) specification.
-
-See `.product/` directory for product/business decisions:
-
-**核心 4**：
-| 文件 | 内容 |
-|------|------|
-| `VISION.md` | 使命、愿景、价值主张 |
-| `ROADMAP.md` | 当前阶段、里程碑、Decision Log |
-| `USERS.md` | 用户画像、痛点、场景 |
-| `SCOPE.md` | 功能边界、非目标 |
-
-**扩展 4**（按需）：
-| 文件 | 内容 |
-|------|------|
-| `BRAND.md` | 品牌调性、用词 |
-| `MARKETING.md` | 获客渠道、推广策略 |
-| `BUSINESS.md` | 定价、商业模式 |
-| `OPS.md` | 基础设施决策、成本 |
-
-### 自动读取规则
-
-| 情况 | 读取文件 |
-|------|----------|
-| 会话开始 | `ROADMAP.md`（了解当前阶段） |
-| 实现新功能前 | `VISION.md` + `SCOPE.md`（确保对齐，检查非目标） |
-| 写用户可见文字时 | `BRAND.md`（保持调性一致，如存在） |
-| 考虑用户需求时 | `USERS.md`（用户视角） |
-
-### 半自动提示规则
-
-| 情况 | 提示 |
-|------|------|
-| 完成重要功能 | 提议更新 `ROADMAP.md` |
-| 做了产品决策 | 提议记录到 `Decision Log` |
-| 讨论了用户场景 | 提议更新 `USERS.md` |
-| 确定了新的边界 | 提议更新 `SCOPE.md` |
-| 讨论扩展话题 | 提议创建对应扩展文件 |
-
-### 决策 vs 操作
-
-- `.product/` = 决策层（WHY、WHAT）→ 产品/商业决策
-- `CLAUDE.md` = 操作层（HOW）→ 技术实现细节
-
-**示例**：
-- "选择 Vercel 托管"（决策）→ `OPS.md`
-- "如何配置 Vercel 部署"（操作）→ `CLAUDE.md` 或 `docs/`
-
-### 非目标意识
-
-实现功能前检查 `SCOPE.md` 的"非目标"部分。如果请求的功能在非目标中，应该告知用户。
+本项目使用 `.product/` 管理产品决策（愿景、用户、范围、路线图）。
+用户可能会调用 `/product` 更新产品文档。
