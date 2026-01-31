@@ -170,6 +170,11 @@ product-context/
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
+**For AI contributors:**
+- This is a specification project, not a product
+- Changes should maintain backwards compatibility
+- Skills should work with their target AI tools
+
 ## License
 
 MIT
