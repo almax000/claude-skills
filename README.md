@@ -2,7 +2,7 @@
 
 > Give your AI the product context it deserves.
 
-**Product Context** is a minimalist specification for managing product documentation in AI-assisted development. Four Markdown files let AI understand not just your code, but your business goals.
+**Product Context** is a minimalist specification for managing product documentation in AI-assisted development. A set of Markdown files let AI understand not just your code, but your business goals.
 
 ## Why?
 
@@ -22,10 +22,10 @@ Create `.product/` in your project:
 
 ```
 .product/
-├── VISION.md       # Product vision (what, who, why)
-├── ROADMAP.md      # Development phases
-├── BRAND.md        # Tone and style
-└── MEMO.md         # Session memory
+├── VISION.md       # Why: Mission, vision, value proposition
+├── USERS.md        # Who: User personas, pain points, scenarios
+├── SCOPE.md        # What: Features, non-goals
+└── ROADMAP.md      # When: Phases, milestones, decision log
 ```
 
 ### Option 2: Use Templates
@@ -44,26 +44,37 @@ cp -r product-context/templates/minimal/.product your-project/
 /product init
 ```
 
-## Core Files
+## File Structure: 4 + 4
 
-| File | Purpose | AI Uses It For |
-|------|---------|----------------|
-| `VISION.md` | Product soul | Feature decisions, saying "no" to out-of-scope |
-| `ROADMAP.md` | Development path | Prioritization, current phase focus |
-| `BRAND.md` | Voice & tone | UI text, error messages, documentation |
-| `MEMO.md` | Session memory | "We finished auth yesterday, continue with payment today" |
+```
+┌─────────────────────────────────────────────────────────────┐
+│  VISION → USERS → SCOPE → ROADMAP                           │
+│  (Core 4: Define at project start)                          │
+├─────────────────────────────────────────────────────────────┤
+│  BRAND → MARKETING → BUSINESS → OPS                         │
+│  (Extension 4: Add as needed during execution)              │
+└─────────────────────────────────────────────────────────────┘
+```
 
-> **Tip**: Start with just `VISION.md`. Add others as your project grows.
+### Core 4 (Required)
 
-### Optional Extensions
+| File | Question | Content |
+|------|----------|---------|
+| `VISION.md` | Why? | Mission, vision, value proposition |
+| `USERS.md` | For whom? | User personas, pain points, scenarios |
+| `SCOPE.md` | What? | Features, non-goals, constraints |
+| `ROADMAP.md` | When? | Phases, milestones, decision log |
 
-For projects that need more context, you can add:
+### Extension 4 (Add as needed)
 
-| File | When to Add |
-|------|-------------|
-| `OPS.md` | Deployment, costs, monetization |
-| `COMPETITORS.md` | Market positioning |
-| `METRICS.md` | Success criteria, KPIs |
+| File | Question | When to Add |
+|------|----------|-------------|
+| `BRAND.md` | How to speak? | When you need consistent voice & tone |
+| `MARKETING.md` | Where from? | When planning user acquisition |
+| `BUSINESS.md` | How to earn? | When defining pricing & monetization |
+| `OPS.md` | How to run? | When making infrastructure decisions |
+
+> **Tip**: Start with the Core 4. Add extensions when the conversation naturally goes there.
 
 ## Supported AI Tools
 
@@ -82,27 +93,35 @@ See `agents/` for integration guides.
 
 Product Context and `AGENTS.md` are **complementary**:
 
-| AGENTS.md | .product/ |
+```
+.product/  = Decision layer (WHY, WHAT)  → Product/business decisions
+AGENTS.md  = Operation layer (HOW)       → Technical implementation
+```
+
+| .product/ | AGENTS.md |
 |-----------|-----------|
-| How to write code | Why write this code |
-| Technical specs | Business logic |
-| Coding style | Brand voice |
-| Build commands | Product vision |
+| Why write this code | How to write code |
+| Business logic | Technical specs |
+| Brand voice | Coding style |
+| Product vision | Build commands |
+| "Use Vercel" (decision) | "How to deploy to Vercel" (operation) |
 
 Add a reference in your `AGENTS.md`:
 
 ```markdown
 ## Product Context
-See `.product/` for product vision, user personas, and brand guidelines.
-Always read `.product/VISION.md` before implementing major features.
+See `.product/` for product decisions.
+Always read `.product/VISION.md` + `SCOPE.md` before implementing major features.
 ```
 
 ## Design Principles
 
-1. **Minimal** - 4 files, 5 minutes to learn
-2. **Markdown-first** - Human readable, AI parseable
-3. **VCS-friendly** - Code and decisions in the same commit
-4. **Tool-agnostic** - Works with any AI coding assistant
+1. **Minimal** - 4 core files, 5 minutes to learn
+2. **Progressive** - Start small, add files as needed
+3. **Decision-focused** - `.product/` = decisions (WHY/WHAT), `AGENTS.md` = operations (HOW)
+4. **Markdown-first** - Human readable, AI parseable
+5. **VCS-friendly** - Code and decisions in the same commit
+6. **Tool-agnostic** - Works with any AI coding assistant
 
 ## Who Is This For?
 
