@@ -1,0 +1,30 @@
+# Cursor Rules Integration
+
+将以下内容添加到你项目的 `.cursorrules` 文件中。
+
+---
+
+```
+# Product Context
+
+This project uses Product Context (`.product/` directory) for product documentation.
+
+## Files
+- `.product/PRD.md` - Product vision, target users, core features
+- `.product/ROADMAP.md` - Current phase and milestones
+- `.product/BRAND.md` - Tone of voice and brand guidelines
+- `.product/MEMO.md` - Current status and recent decisions
+
+## Guidelines
+
+1. Before implementing major features, read `.product/PRD.md`
+2. When writing user-facing text, follow `.product/BRAND.md`
+3. Check `.product/ROADMAP.md` for current priorities
+4. At session start, read `.product/MEMO.md` for context
+5. Suggest updates to MEMO.md when making important decisions
+
+## Non-Goals
+
+Always check the "Non-Goals" section in PRD.md before implementing features.
+If a requested feature is in Non-Goals, remind the user.
+```

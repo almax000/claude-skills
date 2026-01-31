@@ -1,0 +1,27 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+
+# Logs
+*.log
+
+# Research documents (internal)
+Product Context Claude.md
+_Product Context Gemini Pinned chat.md
+
+# Environment
+.env
+.env.local
