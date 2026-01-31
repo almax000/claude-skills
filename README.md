@@ -32,7 +32,7 @@ Create `.product/` in your project:
 
 ```bash
 # Clone the repo
-git clone https://github.com/user/product-context.git
+git clone https://github.com/almax000/product-context.git
 
 # Copy a template to your project
 cp -r product-context/templates/minimal/.product your-project/
@@ -102,8 +102,11 @@ Always read `.product/VISION.md` before implementing major features.
 
 ```
 product-context/
+├── .github/            # GitHub workflows
+├── media/              # Logo, images
 ├── docs/               # Documentation
 │   ├── specification.md
+│   ├── methodology.md
 │   └── guides/
 ├── templates/          # Project templates
 │   ├── minimal/
@@ -119,13 +122,15 @@ product-context/
 │   └── universal/
 ├── spec/               # Format specifications
 │   └── v1/
-├── product-context.md  # Methodology guide
-└── AGENTS.md           # For AI agents working on this repo
+├── AGENTS.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+└── LICENSE
 ```
 
 ## Contributing
 
-Issues and PRs welcome!
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 

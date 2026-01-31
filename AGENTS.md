@@ -10,22 +10,17 @@ Product Context is a minimalist specification for managing product documentation
 
 ```
 product-context/
+├── .github/            # GitHub workflows
+├── media/              # Logo, images
 ├── docs/               # Documentation
-│   └── specification.md
+│   ├── specification.md
+│   ├── methodology.md
+│   └── guides/
 ├── templates/          # Project templates
-│   ├── minimal/
-│   ├── saas/
-│   ├── indie-game/
-│   └── open-source/
 ├── agents/             # AI tool integrations
-│   ├── claude-code/
-│   ├── cursor/
-│   ├── codex/
-│   ├── windsurf/
-│   ├── copilot/
-│   └── universal/
-└── spec/               # Format specifications
-    └── v1/
+├── spec/               # Format specifications
+├── CHANGELOG.md
+└── CONTRIBUTING.md
 ```
 
 ## For AI Agents Reading This
@@ -40,5 +35,5 @@ If you're an AI agent working on this repository:
 ## See Also
 
 - `docs/specification.md` - Formal specification
-- `product-context.md` - Methodology guide
+- `docs/methodology.md` - Methodology guide
 - `README.md` - User-facing documentation
