@@ -38,7 +38,7 @@ user-invocable: true
 **创建文件**：
 ```
 .product/
-├── PRD.md          # 产品需求文档
+├── VISION.md       # 产品愿景文档
 ├── ROADMAP.md      # 产品路线图
 ├── BRAND.md        # 品牌调性指南
 └── MEMO.md         # 当前状态备忘
@@ -49,14 +49,14 @@ user-invocable: true
 读取 `.product/` 目录，将产品上下文注入当前会话。
 
 **执行步骤**：
-1. 读取 `.product/PRD.md` → 理解产品定位
+1. 读取 `.product/VISION.md` → 理解产品定位
 2. 读取 `.product/ROADMAP.md` → 理解当前阶段
 3. 读取 `.product/BRAND.md` → 理解表达风格
 4. 读取 `.product/MEMO.md` → 恢复上次进度
 5. 输出简短摘要，确认已加载
 
 **后续行为**：
-- 写代码时参考 PRD 确保不偏离核心功能
+- 写代码时参考 VISION 确保不偏离核心功能
 - 写文案时遵循 BRAND 调性
 - 完成功能时建议更新 ROADMAP
 
@@ -67,7 +67,7 @@ user-invocable: true
 **触发时机**：
 - 完成里程碑功能 → 更新 ROADMAP.md（勾选已完成项）
 - 做了关键技术/产品决策 → 更新 MEMO.md
-- 用户调整了产品方向 → 更新 PRD.md
+- 用户调整了产品方向 → 更新 VISION.md
 
 **执行方式**：
 1. 分析本次会话做了什么
@@ -105,12 +105,12 @@ user-invocable: true
 ```markdown
 ## Product Context
 See `.product/` for product vision, user personas, and brand guidelines.
-Always read `.product/PRD.md` before implementing major features.
+Always read `.product/VISION.md` before implementing major features.
 ```
 
 ## 文件格式参考
 
-### PRD.md 核心字段
+### VISION.md 核心字段
 ```markdown
 # 产品名称
 

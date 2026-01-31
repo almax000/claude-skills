@@ -1,18 +1,18 @@
 # OpenAI Codex CLI Integration
 
-将以下内容添加到你项目的 `codex.md` 或相应配置文件中。
+Add the following content to your project's `AGENTS.md` file.
 
 ---
 
 ## Product Context
 
-This project uses Product Context for product documentation.
+This project uses [Product Context](https://github.com/user/product-context) specification.
 
 ### Context Files
 
 Read these files in `.product/` directory:
 
-1. **PRD.md** - Product Requirements Document
+1. **VISION.md** - Product Vision Document
    - One-line description
    - Target users and their pain points
    - Core value proposition
@@ -36,7 +36,7 @@ Read these files in `.product/` directory:
 
 ### Behavior Guidelines
 
-- Check PRD.md before implementing new features
+- Check VISION.md before implementing new features
 - Follow BRAND.md when writing user-facing content
 - Refer to ROADMAP.md for prioritization
 - Update MEMO.md after significant progress

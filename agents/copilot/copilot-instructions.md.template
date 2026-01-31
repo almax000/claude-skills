@@ -1,0 +1,30 @@
+# GitHub Copilot Instructions Template
+
+Add the following content to your `.github/copilot-instructions.md` file.
+
+---
+
+# Product Context
+
+This project uses Product Context for product documentation. Before implementing features, consult the `.product/` directory.
+
+## Product Files
+
+### VISION.md
+Contains product vision, target users, core value proposition, and non-goals. Read this before implementing major features to ensure alignment.
+
+### ROADMAP.md
+Contains current development phase and milestones. Use this to understand priorities and what features are planned for each phase.
+
+### BRAND.md
+Contains tone of voice, preferred vocabulary, and brand guidelines. Follow this when writing user-facing text, error messages, and documentation.
+
+### MEMO.md
+Contains current status, recent decisions, and next steps. Read this at session start to understand context, and suggest updates after significant progress.
+
+## Guidelines
+
+1. Check VISION.md's "Non-Goals" section before implementing features that might be out of scope
+2. Follow BRAND.md guidelines for all user-facing content
+3. Prioritize work based on ROADMAP.md current phase
+4. Keep MEMO.md updated with important decisions

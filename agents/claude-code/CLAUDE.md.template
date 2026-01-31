@@ -1,0 +1,27 @@
+# CLAUDE.md Template for Product Context
+
+Add the following section to your project's CLAUDE.md file.
+
+---
+
+## Product Context
+
+This project uses [Product Context](https://github.com/user/product-context) specification.
+
+See `.product/` directory for:
+- `VISION.md` - Product vision, target users, core value proposition
+- `ROADMAP.md` - Current phase and milestones
+- `BRAND.md` - Tone of voice and brand guidelines
+- `MEMO.md` - Current status and recent decisions
+
+### Guidelines
+
+1. **Before implementing major features**: Read `.product/VISION.md` to ensure alignment
+2. **When writing user-facing text**: Follow `.product/BRAND.md` tone and style
+3. **When prioritizing work**: Check `.product/ROADMAP.md` for current phase
+4. **At session start**: Read `.product/MEMO.md` to understand context
+5. **After significant progress**: Suggest updates to `.product/MEMO.md`
+
+### Non-Goals Awareness
+
+Always check the "Non-Goals" section in VISION.md before implementing features that might be out of scope. If a requested feature is listed in Non-Goals, inform the user.

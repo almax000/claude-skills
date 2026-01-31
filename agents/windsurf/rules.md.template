@@ -1,0 +1,42 @@
+# Windsurf Rules Template
+
+Add the following content to your `.windsurf/rules/` directory.
+
+---
+
+# Product Context Rules
+
+## Overview
+This project uses Product Context (`.product/` directory) for product documentation.
+
+## Files
+- `.product/VISION.md` - Product vision, target users, core features, non-goals
+- `.product/ROADMAP.md` - Current phase and milestones
+- `.product/BRAND.md` - Tone of voice and brand guidelines
+- `.product/MEMO.md` - Current status and recent decisions
+
+## Rules
+
+### Feature Implementation
+Before implementing any new feature:
+1. Read `.product/VISION.md`
+2. Verify the feature aligns with "Core Features"
+3. Ensure the feature is NOT in "Non-Goals"
+4. Consider the target user's perspective
+
+### User-Facing Content
+When writing UI text, error messages, or documentation:
+1. Read `.product/BRAND.md`
+2. Follow the defined tone of voice
+3. Use preferred vocabulary
+4. Avoid forbidden words
+
+### Session Management
+At the start of each session:
+1. Read `.product/MEMO.md` for context
+2. After significant progress, suggest updates to MEMO.md
+
+### Prioritization
+When multiple tasks are pending:
+1. Check `.product/ROADMAP.md` for current phase
+2. Focus on milestones for the current phase

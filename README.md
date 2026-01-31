@@ -2,104 +2,131 @@
 
 > Give your AI the product context it deserves.
 
-**Product Context** 是一个极简的产品上下文管理规范。4个Markdown文件，让AI不仅理解你的代码，还理解你的商业目标。
+**Product Context** is a minimalist specification for managing product documentation in AI-assisted development. Four Markdown files let AI understand not just your code, but your business goals.
 
-## 为什么需要这个？
+## Why?
 
-AI编码助手（Claude、Cursor、Copilot）越来越强，但它们只理解**代码**，不理解**产品**：
+AI coding assistants (Claude, Cursor, Copilot) are powerful, but they only understand **code**:
 
-- 它们知道怎么写代码，但不知道**为什么**写这段代码
-- 它们能遵循编码规范，但不知道**给谁**写
-- 它们能生成功能，但不知道这个功能是否符合**产品定位**
+- They know how to write code, but not **why**
+- They follow coding standards, but don't know **for whom**
+- They generate features, but don't know if they fit the **product vision**
 
-`AGENTS.md` 和 `CLAUDE.md` 解决了代码上下文问题，但**产品上下文**仍然是空白。
+`AGENTS.md` and `CLAUDE.md` solved code context. Product Context fills the **product gap**.
 
-## 快速开始
+## Quick Start
 
-### 方式1：手动创建
+### Option 1: Manual Setup
 
-在项目根目录创建 `.product/` 目录：
+Create `.product/` in your project:
 
 ```
 .product/
-├── PRD.md          # 产品需求文档
-├── ROADMAP.md      # 产品路线图
-├── BRAND.md        # 品牌调性指南
-└── MEMO.md         # 当前状态备忘
+├── VISION.md       # Product vision (what, who, why)
+├── ROADMAP.md      # Development phases
+├── BRAND.md        # Tone and style
+└── MEMO.md         # Session memory
 ```
 
-### 方式2：使用模板
+### Option 2: Use Templates
 
 ```bash
-# 克隆仓库
+# Clone the repo
 git clone https://github.com/user/product-context.git
 
-# 复制最小模板到你的项目
+# Copy a template to your project
 cp -r product-context/templates/minimal/.product your-project/
 ```
 
-### 方式3：使用 Claude Code Skill
+### Option 3: Claude Code Skill
 
 ```
 /product init
 ```
 
-## 核心文件
+## Core Files
 
-| 文件 | 作用 | AI如何使用 |
-|------|------|------------|
-| `PRD.md` | 产品灵魂 | 实现功能前检查是否符合产品定位 |
-| `ROADMAP.md` | 战略方向 | 了解当前阶段，区分优先级 |
-| `BRAND.md` | 品牌调性 | 写文案、UI文字时遵循风格 |
-| `MEMO.md` | 短期记忆 | 恢复上次会话进度，保持连续性 |
+| File | Purpose | AI Uses It For |
+|------|---------|----------------|
+| `VISION.md` | Product soul | Feature decisions, saying "no" to out-of-scope |
+| `ROADMAP.md` | Development path | Prioritization, current phase focus |
+| `BRAND.md` | Voice & tone | UI text, error messages, documentation |
+| `MEMO.md` | Short-term memory | Session context restoration |
 
-## 与 AGENTS.md 的关系
+## Supported AI Tools
 
-Product Context 和 `AGENTS.md` 是**互补关系**，不是竞争：
+| Tool | Integration |
+|------|-------------|
+| **Claude Code** | Skill + CLAUDE.md template |
+| **Cursor** | .cursorrules template |
+| **GitHub Copilot** | copilot-instructions.md template |
+| **OpenAI Codex CLI** | AGENTS.md template |
+| **Windsurf** | .windsurf/rules template |
+| **Universal** | AGENTS.md (OpenSkills compatible) |
+
+See `agents/` for integration guides.
+
+## Relationship to AGENTS.md
+
+Product Context and `AGENTS.md` are **complementary**:
 
 | AGENTS.md | .product/ |
 |-----------|-----------|
-| 怎么写代码 | 为什么写这个代码 |
-| 技术规范 | 商业逻辑 |
-| 编码风格 | 品牌调性 |
-| 构建命令 | 产品愿景 |
+| How to write code | Why write this code |
+| Technical specs | Business logic |
+| Coding style | Brand voice |
+| Build commands | Product vision |
 
-在 `AGENTS.md` 中添加引用：
+Add a reference in your `AGENTS.md`:
 
 ```markdown
 ## Product Context
 See `.product/` for product vision, user personas, and brand guidelines.
-Always read `.product/PRD.md` before implementing major features.
+Always read `.product/VISION.md` before implementing major features.
 ```
 
-## 设计原则
+## Design Principles
 
-1. **极简** - 4个文件，5分钟上手
-2. **Markdown优先** - 人类可读，AI可解析
-3. **版本控制友好** - 代码和决策在同一个commit
-4. **工具无关** - 不绑定任何特定AI工具
+1. **Minimal** - 4 files, 5 minutes to learn
+2. **Markdown-first** - Human readable, AI parseable
+3. **VCS-friendly** - Code and decisions in the same commit
+4. **Tool-agnostic** - Works with any AI coding assistant
 
-## 目录结构
+## Who Is This For?
+
+- **Solo developers** - You're the dev, PM, and marketer
+- **Small teams** - AI needs product context
+- **Open source** - Help contributors understand the vision
+
+## Project Structure
 
 ```
 product-context/
-├── spec/           # 格式规范
-├── templates/      # 项目模板
-├── skill/          # Claude Code Skill
-├── examples/       # 示例项目
-└── integrations/   # 其他工具适配
+├── docs/               # Documentation
+│   ├── specification.md
+│   └── guides/
+├── templates/          # Project templates
+│   ├── minimal/
+│   ├── saas/
+│   ├── indie-game/
+│   └── open-source/
+├── agents/             # AI tool integrations
+│   ├── claude-code/
+│   ├── cursor/
+│   ├── codex/
+│   ├── windsurf/
+│   ├── copilot/
+│   └── universal/
+├── spec/               # Format specifications
+│   └── v1/
+├── product-context.md  # Methodology guide
+└── AGENTS.md           # For AI agents working on this repo
 ```
 
-## 谁适合用这个？
+## Contributing
 
-- **独立开发者** - 一个人做开发+产品+运营
-- **小团队** - 需要让AI理解产品背景
-- **开源项目** - 帮助贡献者理解项目愿景
+Issues and PRs welcome!
 
-## 贡献
-
-欢迎提交 Issue 和 PR！
-
-## 许可证
+## License
 
 MIT

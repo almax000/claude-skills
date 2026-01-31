@@ -1,11 +1,13 @@
-# PRD.md 格式规范
+# VISION.md 格式规范
 
 **版本**: v1
 **状态**: 稳定
 
 ## 概述
 
-PRD.md（Product Requirements Document）是产品的灵魂文件，定义产品是什么、给谁用、解决什么问题。
+VISION.md（Product Vision Document）是产品的灵魂文件，定义产品是什么、给谁用、解决什么问题。
+
+> 此文件原名 PRD.md（Product Requirements Document），现代化为 VISION.md，更强调产品愿景而非传统需求文档。
 
 ## 必需字段
 
@@ -68,7 +70,7 @@ PRD.md（Product Requirements Document）是产品的灵魂文件，定义产品
 
 ## AI使用指南
 
-当AI读取PRD.md时，应该：
+当AI读取VISION.md时，应该：
 
 1. **功能决策** - 在实现新功能前，检查是否在"核心功能"列表中
 2. **说不** - 如果请求在"非目标"中，应该提醒用户
