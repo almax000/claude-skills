@@ -51,7 +51,19 @@ cp -r product-context/templates/minimal/.product your-project/
 | `VISION.md` | Product soul | Feature decisions, saying "no" to out-of-scope |
 | `ROADMAP.md` | Development path | Prioritization, current phase focus |
 | `BRAND.md` | Voice & tone | UI text, error messages, documentation |
-| `MEMO.md` | Short-term memory | Session context restoration |
+| `MEMO.md` | Session memory | "We finished auth yesterday, continue with payment today" |
+
+> **Tip**: Start with just `VISION.md`. Add others as your project grows.
+
+### Optional Extensions
+
+For projects that need more context, you can add:
+
+| File | When to Add |
+|------|-------------|
+| `OPS.md` | Deployment, costs, monetization |
+| `COMPETITORS.md` | Market positioning |
+| `METRICS.md` | Success criteria, KPIs |
 
 ## Supported AI Tools
 
@@ -94,9 +106,17 @@ Always read `.product/VISION.md` before implementing major features.
 
 ## Who Is This For?
 
-- **Solo developers** - You're the dev, PM, and marketer
-- **Small teams** - AI needs product context
-- **Open source** - Help contributors understand the vision
+**If you're the only person building, shipping, and selling your product — this is for you.**
+
+Also works for:
+- Small teams where AI does the heavy lifting
+- Open source maintainers who want contributors to understand the vision
+
+### Not For
+
+- Libraries/frameworks (use `AGENTS.md` for technical docs)
+- One-off scripts
+- Pure marketing sites (only `BRAND.md` applies)
 
 ## Project Structure
 
