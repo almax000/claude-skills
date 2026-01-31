@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+- **Breaking**: Restructured to 4+4 file format
+  - Core 4: VISION → USERS → SCOPE → ROADMAP (define in order)
+  - Extension 4: BRAND | MARKETING | BUSINESS | OPS (add as needed)
+- Removed MEMO.md (merged into ROADMAP.md Decision Log)
+- Renamed `agents/` to `integrations/`
+- Moved Claude Code skill to `skill/` directory
+- Simplified `/product` commands to just `init` and update
+- Made updates user-driven (no AI proactive proposals)
+
+### Added
+- New spec files: USERS.md, SCOPE.md, MARKETING.md, BUSINESS.md, OPS.md
+- Decision Log section in ROADMAP.md
+- skill/README.md with installation instructions
+- integrations/README.md overview
+
+### Removed
+- MEMO.md specification (use ROADMAP.md Decision Log instead)
+- `/product sync`, `/product update`, `/product ask` commands
+
 ## [1.0.0] - 2025-01-31
 
 ### Added

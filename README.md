@@ -40,7 +40,11 @@ cp -r product-context/templates/minimal/.product your-project/
 
 ### Option 3: Claude Code Skill
 
-```
+```bash
+# Install skill
+ln -s /path/to/product-context/skill ~/.claude/skills/product
+
+# Then in your project
 /product init
 ```
 
@@ -78,16 +82,16 @@ cp -r product-context/templates/minimal/.product your-project/
 
 ## Supported AI Tools
 
-| Tool | Integration |
-|------|-------------|
-| **Claude Code** | Skill + CLAUDE.md template |
-| **Cursor** | .cursorrules template |
-| **GitHub Copilot** | copilot-instructions.md template |
-| **OpenAI Codex CLI** | AGENTS.md template |
-| **Windsurf** | .windsurf/rules template |
-| **Universal** | AGENTS.md (OpenSkills compatible) |
+| Tool | Integration | Location |
+|------|-------------|----------|
+| **Claude Code** | Skill (recommended) | [`skill/`](skill/) |
+| **Cursor** | .cursorrules template | [`integrations/cursor/`](integrations/cursor/) |
+| **GitHub Copilot** | copilot-instructions.md | [`integrations/copilot/`](integrations/copilot/) |
+| **OpenAI Codex CLI** | AGENTS.md template | [`integrations/codex/`](integrations/codex/) |
+| **Windsurf** | .windsurf/rules | [`integrations/windsurf/`](integrations/windsurf/) |
+| **Universal** | AGENTS.md (OpenSkills) | [`integrations/universal/`](integrations/universal/) |
 
-See `agents/` for integration guides.
+See [`skill/`](skill/) for Claude Code and [`integrations/`](integrations/) for other tools.
 
 ## Relationship to AGENTS.md
 
@@ -141,26 +145,23 @@ Also works for:
 
 ```
 product-context/
-├── .github/            # GitHub workflows
-├── media/              # Logo, images
-├── docs/               # Documentation
-│   ├── specification.md
-│   ├── methodology.md
-│   └── guides/
+├── skill/              # Claude Code skill (symlink to ~/.claude/skills/)
+│   └── SKILL.md
+├── integrations/       # Other AI tool configurations
+│   ├── cursor/
+│   ├── copilot/
+│   ├── codex/
+│   ├── windsurf/
+│   └── universal/
 ├── templates/          # Project templates
 │   ├── minimal/
 │   ├── saas/
 │   ├── indie-game/
 │   └── open-source/
-├── agents/             # AI tool integrations
-│   ├── claude-code/
-│   ├── cursor/
-│   ├── codex/
-│   ├── windsurf/
-│   ├── copilot/
-│   └── universal/
 ├── spec/               # Format specifications
 │   └── v1/
+├── docs/               # Documentation
+├── CLAUDE.md.template  # Template for CLAUDE.md integration
 ├── AGENTS.md
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
