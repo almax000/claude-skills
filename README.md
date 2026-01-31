@@ -38,15 +38,17 @@ git clone https://github.com/almax000/product-context.git
 cp -r product-context/templates/minimal/.product your-project/
 ```
 
-### Option 3: Claude Code Skill
+### Option 3: AI Coding Assistant
 
 ```bash
-# Install skill
-ln -s /path/to/product-context/skill ~/.claude/skills/product
+# Claude Code / Gemini CLI
+ln -s /path/to/product-context/skills/claude-code ~/.claude/skills/product
 
 # Then in your project
 /product init
 ```
+
+See [`skills/`](skills/) for all supported AI tools.
 
 ## File Structure: 4 + 4
 
@@ -82,16 +84,17 @@ ln -s /path/to/product-context/skill ~/.claude/skills/product
 
 ## Supported AI Tools
 
-| Tool | Integration | Location |
-|------|-------------|----------|
-| **Claude Code** | Skill (recommended) | [`skill/`](skill/) |
-| **Cursor** | .cursorrules template | [`integrations/cursor/`](integrations/cursor/) |
-| **GitHub Copilot** | copilot-instructions.md | [`integrations/copilot/`](integrations/copilot/) |
-| **OpenAI Codex CLI** | AGENTS.md template | [`integrations/codex/`](integrations/codex/) |
-| **Windsurf** | .windsurf/rules | [`integrations/windsurf/`](integrations/windsurf/) |
-| **Universal** | AGENTS.md (OpenSkills) | [`integrations/universal/`](integrations/universal/) |
-
-See [`skill/`](skill/) for Claude Code and [`integrations/`](integrations/) for other tools.
+| Tool | Format | Location |
+|------|--------|----------|
+| **Claude Code** | SKILL.md | [`skills/claude-code/`](skills/claude-code/) |
+| **Gemini CLI** | SKILL.md | [`skills/gemini-cli/`](skills/gemini-cli/) |
+| **GitHub Copilot** | SKILL.md (experimental) | [`skills/github-copilot/`](skills/github-copilot/) |
+| **Cursor** | .mdc rules | [`skills/cursor/`](skills/cursor/) |
+| **Windsurf** | rules | [`skills/windsurf/`](skills/windsurf/) |
+| **Continue.dev** | rules | [`skills/continue/`](skills/continue/) |
+| **Cline** | Memory Bank | [`skills/cline/`](skills/cline/) |
+| **Aider** | CONVENTIONS.md | [`skills/aider/`](skills/aider/) |
+| **OpenAI Codex** | AGENTS.md | [`skills/codex/`](skills/codex/) |
 
 ## Relationship to AGENTS.md
 
@@ -145,27 +148,22 @@ Also works for:
 
 ```
 product-context/
-├── skill/              # Claude Code skill (symlink to ~/.claude/skills/)
-│   └── SKILL.md
-├── integrations/       # Other AI tool configurations
-│   ├── cursor/
-│   ├── copilot/
-│   ├── codex/
-│   ├── windsurf/
-│   └── universal/
+├── skills/             # AI tool configurations
+│   ├── claude-code/    # SKILL.md
+│   ├── gemini-cli/     # SKILL.md
+│   ├── github-copilot/ # SKILL.md (experimental)
+│   ├── cursor/         # .mdc rules
+│   ├── windsurf/       # rules
+│   ├── continue/       # rules
+│   ├── cline/          # Memory Bank
+│   ├── aider/          # CONVENTIONS.md
+│   └── codex/          # AGENTS.md
 ├── templates/          # Project templates
 │   ├── minimal/
 │   ├── saas/
 │   ├── indie-game/
 │   └── open-source/
-├── spec/               # Format specifications
-│   └── v1/
-├── docs/               # Documentation
-├── CLAUDE.md.template  # Template for CLAUDE.md integration
-├── AGENTS.md
-├── CHANGELOG.md
-├── CONTRIBUTING.md
-└── LICENSE
+└── README.md
 ```
 
 ## Contributing
