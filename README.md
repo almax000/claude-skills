@@ -49,10 +49,10 @@ cp -r product-context/templates/minimal/.product your-project/
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  VISION → USERS → SCOPE → ROADMAP                           │
-│  (Core 4: Define at project start)                          │
+│  (Core 4: Define at project start, in order)                │
 ├─────────────────────────────────────────────────────────────┤
-│  BRAND → MARKETING → BUSINESS → OPS                         │
-│  (Extension 4: Add as needed during execution)              │
+│  BRAND   MARKETING   BUSINESS   OPS                         │
+│  (Extension 4: Add any, anytime, as needed)                 │
 └─────────────────────────────────────────────────────────────┘
 ```
 
