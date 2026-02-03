@@ -44,7 +44,7 @@ No extra tools. No complex workflows. Just your repo.
 | `SCOPE.md` | What to build? | Features, non-goals, constraints |
 | `ROADMAP.md` | What's next? | Current phase, milestones, decision log |
 
-**Extensions** (add as needed): `BRAND.md`, `MARKETING.md`, `BUSINESS.md`, `METRICS.md`
+These 4 files are **recommendations**, not requirements. Add, remove, or rename as needed. Common extensions: `BRAND.md`, `MARKETING.md`, `BUSINESS.md`, `METRICS.md` — or create your own.
 
 ---
 
@@ -59,8 +59,16 @@ cp -r product-context/templates/minimal/.claude your-project/
 
 ### Option 2: Claude Code Skill
 
+**Via Plugin Marketplace:**
+```
+/plugin marketplace add almax000/product-context
+/plugin install product
+```
+
+**Or manually:**
 ```bash
-ln -s /path/to/product-context/skills/claude-code ~/.claude/skills/product
+git clone https://github.com/almax000/product-context.git
+cp -r product-context/skills/claude-code ~/.claude/skills/product
 # Then run: /product init
 ```
 

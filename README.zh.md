@@ -44,7 +44,7 @@
 | `SCOPE.md` | 做什么？ | 功能范围、明确不做的事 |
 | `ROADMAP.md` | 下一步是什么？ | 当前阶段、里程碑、决策日志 |
 
-**可选扩展**：`BRAND.md`、`MARKETING.md`、`BUSINESS.md`、`METRICS.md`
+这 4 个文件是**建议**，不是强制。可以按需增删或重命名。常见扩展：`BRAND.md`、`MARKETING.md`、`BUSINESS.md`、`METRICS.md`——或者自定义你需要的。
 
 ---
 
@@ -59,8 +59,16 @@ cp -r product-context/templates/minimal/.claude your-project/
 
 ### 方式二：Claude Code 技能
 
+**通过 Plugin Marketplace：**
+```
+/plugin marketplace add almax000/product-context
+/plugin install product
+```
+
+**或手动安装：**
 ```bash
-ln -s /path/to/product-context/skills/claude-code ~/.claude/skills/product
+git clone https://github.com/almax000/product-context.git
+cp -r product-context/skills/claude-code ~/.claude/skills/product
 # 然后执行：/product init
 ```
 
