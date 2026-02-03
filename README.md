@@ -1,5 +1,7 @@
 # Product Context
 
+[English](README.md) | [中文](README.zh.md)
+
 > Give your AI the product context it deserves.
 
 **Product Context** is a minimalist specification for managing product documentation in AI-assisted development. A set of Markdown files let AI understand not just your code, but your business goals.
@@ -18,10 +20,10 @@ AI coding assistants (Claude, Cursor, Copilot) are powerful, but they only under
 
 ### Option 1: Manual Setup
 
-Create `.product/` in your project:
+Create `.claude/product/` in your project:
 
 ```
-.product/
+.claude/product/
 ├── VISION.md       # Why: Mission, vision, value proposition
 ├── USERS.md        # Who: User personas, pain points, scenarios
 ├── SCOPE.md        # What: Features, non-goals
@@ -35,7 +37,7 @@ Create `.product/` in your project:
 git clone https://github.com/almax000/product-context.git
 
 # Copy a template to your project
-cp -r product-context/templates/minimal/.product your-project/
+cp -r product-context/templates/minimal/.claude/product your-project/.claude/
 ```
 
 ### Option 3: AI Coding Assistant
@@ -50,28 +52,34 @@ ln -s /path/to/product-context/skills/claude-code ~/.claude/skills/product
 
 See [`skills/`](skills/) for all supported AI tools.
 
-## File Structure: 4 + 4
+## File Structure
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  VISION → USERS → SCOPE → ROADMAP                           │
-│  (Core 4: Define at project start, in order)                │
+│  ROADMAP.md  ← The center of everything                    │
+│  ────────────────────────────────────────────────────────   │
+│  VISION.md    Why are we building this?                    │
+│  USERS.md     Who are we building for?                     │
+│  SCOPE.md     What are we building (and not building)?     │
 ├─────────────────────────────────────────────────────────────┤
-│  BRAND   MARKETING   BUSINESS   OPS                         │
-│  (Extension 4: Add any, anytime, as needed)                 │
+│  + Extend freely: BRAND.md, MARKETING.md, BUSINESS.md...   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Core 4 (Required)
+### Core 4 Files
 
 | File | Question | Content |
 |------|----------|---------|
+| `ROADMAP.md` | **When & Why?** | **Phases, milestones, decision log — the living center** |
 | `VISION.md` | Why? | Mission, vision, value proposition |
 | `USERS.md` | For whom? | User personas, pain points, scenarios |
 | `SCOPE.md` | What? | Features, non-goals, constraints |
-| `ROADMAP.md` | When? | Phases, milestones, decision log |
 
-### Extension 4 (Add as needed)
+**ROADMAP.md is the heartbeat** — it tracks what's happening now, what's next, and why decisions were made. The other files provide stable context.
+
+### Extensions (Add as needed)
+
+Add any files that make sense for your product:
 
 | File | Question | When to Add |
 |------|----------|-------------|
@@ -79,6 +87,8 @@ See [`skills/`](skills/) for all supported AI tools.
 | `MARKETING.md` | Where from? | When planning user acquisition |
 | `BUSINESS.md` | How to earn? | When defining pricing & monetization |
 | `OPS.md` | How to run? | When making infrastructure decisions |
+| `METRICS.md` | How to measure? | When defining success metrics |
+| `COMPETITORS.md` | Who else? | When analyzing market landscape |
 
 > **Tip**: Start with the Core 4. Add extensions when the conversation naturally goes there.
 
@@ -101,12 +111,12 @@ See [`skills/`](skills/) for all supported AI tools.
 Product Context and `AGENTS.md` are **complementary**:
 
 ```
-.product/  = Decision layer (WHY, WHAT)  → Product/business decisions
-AGENTS.md  = Operation layer (HOW)       → Technical implementation
+.claude/product/  = Decision layer (WHY, WHAT)  → Product/business decisions
+AGENTS.md         = Operation layer (HOW)       → Technical implementation
 ```
 
-| .product/ | AGENTS.md |
-|-----------|-----------|
+| .claude/product/ | AGENTS.md |
+|------------------|-----------|
 | Why write this code | How to write code |
 | Business logic | Technical specs |
 | Brand voice | Coding style |
@@ -117,18 +127,19 @@ Add a reference in your `AGENTS.md`:
 
 ```markdown
 ## Product Context
-See `.product/` for product decisions.
-Always read `.product/VISION.md` + `SCOPE.md` before implementing major features.
+See `.claude/product/` for product decisions.
+Always read `ROADMAP.md` before implementing major features.
 ```
 
 ## Design Principles
 
 1. **Minimal** - 4 core files, 5 minutes to learn
 2. **Progressive** - Start small, add files as needed
-3. **Decision-focused** - `.product/` = decisions (WHY/WHAT), `AGENTS.md` = operations (HOW)
-4. **Markdown-first** - Human readable, AI parseable
-5. **VCS-friendly** - Code and decisions in the same commit
-6. **Tool-agnostic** - Works with any AI coding assistant
+3. **ROADMAP-centric** - The roadmap is the living document; others provide context
+4. **Decision-focused** - `.claude/product/` = decisions (WHY/WHAT), `AGENTS.md` = operations (HOW)
+5. **Markdown-first** - Human readable, AI parseable
+6. **VCS-friendly** - Code and decisions in the same commit
+7. **Tool-agnostic** - Works with any AI coding assistant
 
 ## Who Is This For?
 
