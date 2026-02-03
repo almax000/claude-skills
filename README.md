@@ -17,11 +17,11 @@
 
 As an indie developer, your product knowledge is scattered everywhere:
 
-- Product vision → Notion
-- User research → Google Docs
-- Roadmap → Spreadsheet
-- Marketing copy → Random notes
-- Business model → Your head
+- Product vision → some note app
+- User research → some doc
+- Roadmap → some spreadsheet
+- Marketing copy → random notes
+- Business model → your head
 
 Your AI coding assistant can't access any of it.
 
