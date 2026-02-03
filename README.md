@@ -1,30 +1,12 @@
 <div align="center">
 
-```
-╔═══════════════════════════════════════════════════════════════════╗
-║                                                                   ║
-║   ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗    ║
-║   ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝    ║
-║   ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║       ║
-║   ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║       ║
-║   ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║       ║
-║   ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝       ║
-║                                                                   ║
-║    ██████╗ ██████╗ ███╗   ██╗████████╗███████╗██╗  ██╗████████╗  ║
-║   ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔════╝╚██╗██╔╝╚══██╔══╝  ║
-║   ██║     ██║   ██║██╔██╗ ██║   ██║   █████╗   ╚███╔╝    ██║     ║
-║   ██║     ██║   ██║██║╚██╗██║   ██║   ██╔══╝   ██╔██╗    ██║     ║
-║   ╚██████╗╚██████╔╝██║ ╚████║   ██║   ███████╗██╔╝ ██╗   ██║     ║
-║    ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝   ╚═╝     ║
-║                                                                   ║
-╚═══════════════════════════════════════════════════════════════════╝
-```
+# 📦 Product Context
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![9 AI Tools](https://img.shields.io/badge/AI%20Tools-9%20Supported-blue.svg)](#-supported-ai-tools)
 [![Markdown](https://img.shields.io/badge/Format-Markdown-orange.svg)](#-the-4-file-system)
 
-### **Repository is all you need.**
+**Repository is all you need.**
 
 *Your repo IS your company. 4 Markdown files = Complete product context.*
 
@@ -148,17 +130,17 @@ See [`skills/`](skills/) for all supported AI tools.
 
 ## 🤖 Supported AI Tools
 
-| Tool | Format | Ready |
-|:-----|:-------|:-----:|
-| ![Claude](https://img.shields.io/badge/Claude_Code-SKILL.md-orange) | [`skills/claude-code/`](skills/claude-code/) | ✅ |
-| ![Gemini](https://img.shields.io/badge/Gemini_CLI-SKILL.md-blue) | [`skills/gemini-cli/`](skills/gemini-cli/) | ✅ |
-| ![Copilot](https://img.shields.io/badge/GitHub_Copilot-SKILL.md-purple) | [`skills/github-copilot/`](skills/github-copilot/) | 🧪 |
-| ![Cursor](https://img.shields.io/badge/Cursor-.mdc-green) | [`skills/cursor/`](skills/cursor/) | ✅ |
-| ![Windsurf](https://img.shields.io/badge/Windsurf-rules-teal) | [`skills/windsurf/`](skills/windsurf/) | ✅ |
-| ![Continue](https://img.shields.io/badge/Continue.dev-rules-yellow) | [`skills/continue/`](skills/continue/) | ✅ |
-| ![Cline](https://img.shields.io/badge/Cline-Memory_Bank-red) | [`skills/cline/`](skills/cline/) | ✅ |
-| ![Aider](https://img.shields.io/badge/Aider-CONVENTIONS.md-pink) | [`skills/aider/`](skills/aider/) | ✅ |
-| ![Codex](https://img.shields.io/badge/OpenAI_Codex-AGENTS.md-gray) | [`skills/codex/`](skills/codex/) | ✅ |
+| Tool | Format | Status |
+|:-----|:-------|:------:|
+| ![Claude](https://img.shields.io/badge/Claude_Code-SKILL.md-orange) | [`skills/claude-code/`](skills/claude-code/) | ✅ Tested |
+| ![Gemini](https://img.shields.io/badge/Gemini_CLI-SKILL.md-blue) | [`skills/gemini-cli/`](skills/gemini-cli/) | 📋 Untested |
+| ![Copilot](https://img.shields.io/badge/GitHub_Copilot-SKILL.md-purple) | [`skills/github-copilot/`](skills/github-copilot/) | 📋 Untested |
+| ![Cursor](https://img.shields.io/badge/Cursor-.mdc-green) | [`skills/cursor/`](skills/cursor/) | 📋 Untested |
+| ![Windsurf](https://img.shields.io/badge/Windsurf-rules-teal) | [`skills/windsurf/`](skills/windsurf/) | 📋 Untested |
+| ![Continue](https://img.shields.io/badge/Continue.dev-rules-yellow) | [`skills/continue/`](skills/continue/) | 📋 Untested |
+| ![Cline](https://img.shields.io/badge/Cline-Memory_Bank-red) | [`skills/cline/`](skills/cline/) | 📋 Untested |
+| ![Aider](https://img.shields.io/badge/Aider-CONVENTIONS.md-pink) | [`skills/aider/`](skills/aider/) | 📋 Untested |
+| ![Codex](https://img.shields.io/badge/OpenAI_Codex-AGENTS.md-gray) | [`skills/codex/`](skills/codex/) | 📋 Untested |
 
 ---
 
