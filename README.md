@@ -1,24 +1,74 @@
-# Product Context
+<div align="center">
+
+```
+╔═══════════════════════════════════════════════════════════════════╗
+║                                                                   ║
+║   ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗    ║
+║   ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝    ║
+║   ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║       ║
+║   ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║       ║
+║   ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║       ║
+║   ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝       ║
+║                                                                   ║
+║    ██████╗ ██████╗ ███╗   ██╗████████╗███████╗██╗  ██╗████████╗  ║
+║   ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔════╝╚██╗██╔╝╚══██╔══╝  ║
+║   ██║     ██║   ██║██╔██╗ ██║   ██║   █████╗   ╚███╔╝    ██║     ║
+║   ██║     ██║   ██║██║╚██╗██║   ██║   ██╔══╝   ██╔██╗    ██║     ║
+║   ╚██████╗╚██████╔╝██║ ╚████║   ██║   ███████╗██╔╝ ██╗   ██║     ║
+║    ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝   ╚═╝     ║
+║                                                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
+```
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![9 AI Tools](https://img.shields.io/badge/AI%20Tools-9%20Supported-blue.svg)](#-supported-ai-tools)
+[![Markdown](https://img.shields.io/badge/Format-Markdown-orange.svg)](#-the-4-file-system)
+
+### **Repository is all you need.**
+
+*Your repo IS your company. 4 Markdown files = Complete product context.*
 
 [English](README.md) | [中文](README.zh.md)
 
-> Give your AI the product context it deserves.
+</div>
 
-**Product Context** is a minimalist specification for managing product documentation in AI-assisted development. A set of Markdown files let AI understand not just your code, but your business goals.
+---
 
-## Why?
+## 🎯 The Problem
 
-AI coding assistants (Claude, Cursor, Copilot) are powerful, but they only understand **code**:
+AI writes code, but doesn't understand your **product**:
 
-- They know how to write code, but not **why**
-- They follow coding standards, but don't know **for whom**
-- They generate features, but don't know if they fit the **product vision**
+| AI Knows | AI Doesn't Know |
+|----------|-----------------|
+| How to write code | **Why** this code exists |
+| Coding standards | **Who** uses this product |
+| Technical patterns | **What** the product vision is |
 
-`AGENTS.md` and `CLAUDE.md` solved code context. Product Context fills the **product gap**.
+`AGENTS.md` solved code context. **Product Context** fills the product gap.
 
-## Quick Start
+---
 
-### Option 1: Manual Setup
+## 💡 The Solution
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   📦  4 Markdown files = Complete product context          │
+│                                                             │
+│   VISION.md   →  Why are we building this?                 │
+│   USERS.md    →  Who are we building for?                  │
+│   SCOPE.md    →  What are we building (and not building)?  │
+│   ROADMAP.md  →  When? What's next? Decision log.          │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🚀 Quick Start
+
+<details>
+<summary><strong>Option 1: Manual Setup</strong> (recommended)</summary>
 
 Create `.claude/product/` in your project:
 
@@ -30,17 +80,22 @@ Create `.claude/product/` in your project:
 └── ROADMAP.md      # When: Phases, milestones, decision log
 ```
 
-### Option 2: Use Templates
+</details>
+
+<details>
+<summary><strong>Option 2: Use Templates</strong></summary>
 
 ```bash
-# Clone the repo
 git clone https://github.com/almax000/product-context.git
-
-# Copy a template to your project
 cp -r product-context/templates/minimal/.claude/product your-project/.claude/
 ```
 
-### Option 3: AI Coding Assistant
+Available templates: `minimal`, `saas`, `indie-game`, `open-source`
+
+</details>
+
+<details>
+<summary><strong>Option 3: AI Coding Assistant</strong></summary>
 
 ```bash
 # Claude Code / Gemini CLI
@@ -52,110 +107,134 @@ ln -s /path/to/product-context/skills/claude-code ~/.claude/skills/product
 
 See [`skills/`](skills/) for all supported AI tools.
 
-## File Structure
+</details>
+
+---
+
+## 📁 The 4-File System
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  ROADMAP.md  ← The center of everything                    │
+│  🎯 ROADMAP.md  ← The heartbeat                             │
 │  ────────────────────────────────────────────────────────   │
-│  VISION.md    Why are we building this?                    │
-│  USERS.md     Who are we building for?                     │
-│  SCOPE.md     What are we building (and not building)?     │
+│  💭 VISION.md    Why are we building this?                  │
+│  👥 USERS.md     Who are we building for?                   │
+│  📋 SCOPE.md     What are we building (and not building)?   │
 ├─────────────────────────────────────────────────────────────┤
-│  + Extend freely: BRAND.md, MARKETING.md, BUSINESS.md...   │
+│  ➕ Extend freely: BRAND.md, MARKETING.md, BUSINESS.md...   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Core 4 Files
+### Core Files
 
 | File | Question | Content |
 |------|----------|---------|
-| `ROADMAP.md` | **When & Why?** | **Phases, milestones, decision log — the living center** |
+| `ROADMAP.md` | **When & Why?** | Phases, milestones, decision log — the living center |
 | `VISION.md` | Why? | Mission, vision, value proposition |
 | `USERS.md` | For whom? | User personas, pain points, scenarios |
 | `SCOPE.md` | What? | Features, non-goals, constraints |
 
-**ROADMAP.md is the heartbeat** — it tracks what's happening now, what's next, and why decisions were made. The other files provide stable context.
-
 ### Extensions (Add as needed)
 
-Add any files that make sense for your product:
+| File | Purpose | Add When |
+|------|---------|----------|
+| `BRAND.md` | Voice & tone | Need consistent communication |
+| `MARKETING.md` | User acquisition | Planning growth strategy |
+| `BUSINESS.md` | Pricing & monetization | Defining revenue model |
+| `OPS.md` | Infrastructure decisions | DevOps planning |
+| `METRICS.md` | Success metrics | Measuring outcomes |
 
-| File | Question | When to Add |
-|------|----------|-------------|
-| `BRAND.md` | How to speak? | When you need consistent voice & tone |
-| `MARKETING.md` | Where from? | When planning user acquisition |
-| `BUSINESS.md` | How to earn? | When defining pricing & monetization |
-| `OPS.md` | How to run? | When making infrastructure decisions |
-| `METRICS.md` | How to measure? | When defining success metrics |
-| `COMPETITORS.md` | Who else? | When analyzing market landscape |
+---
 
-> **Tip**: Start with the Core 4. Add extensions when the conversation naturally goes there.
+## 🤖 Supported AI Tools
 
-## Supported AI Tools
+| Tool | Format | Ready |
+|:-----|:-------|:-----:|
+| ![Claude](https://img.shields.io/badge/Claude_Code-SKILL.md-orange) | [`skills/claude-code/`](skills/claude-code/) | ✅ |
+| ![Gemini](https://img.shields.io/badge/Gemini_CLI-SKILL.md-blue) | [`skills/gemini-cli/`](skills/gemini-cli/) | ✅ |
+| ![Copilot](https://img.shields.io/badge/GitHub_Copilot-SKILL.md-purple) | [`skills/github-copilot/`](skills/github-copilot/) | 🧪 |
+| ![Cursor](https://img.shields.io/badge/Cursor-.mdc-green) | [`skills/cursor/`](skills/cursor/) | ✅ |
+| ![Windsurf](https://img.shields.io/badge/Windsurf-rules-teal) | [`skills/windsurf/`](skills/windsurf/) | ✅ |
+| ![Continue](https://img.shields.io/badge/Continue.dev-rules-yellow) | [`skills/continue/`](skills/continue/) | ✅ |
+| ![Cline](https://img.shields.io/badge/Cline-Memory_Bank-red) | [`skills/cline/`](skills/cline/) | ✅ |
+| ![Aider](https://img.shields.io/badge/Aider-CONVENTIONS.md-pink) | [`skills/aider/`](skills/aider/) | ✅ |
+| ![Codex](https://img.shields.io/badge/OpenAI_Codex-AGENTS.md-gray) | [`skills/codex/`](skills/codex/) | ✅ |
 
-| Tool | Format | Location |
-|------|--------|----------|
-| **Claude Code** | SKILL.md | [`skills/claude-code/`](skills/claude-code/) |
-| **Gemini CLI** | SKILL.md | [`skills/gemini-cli/`](skills/gemini-cli/) |
-| **GitHub Copilot** | SKILL.md (experimental) | [`skills/github-copilot/`](skills/github-copilot/) |
-| **Cursor** | .mdc rules | [`skills/cursor/`](skills/cursor/) |
-| **Windsurf** | rules | [`skills/windsurf/`](skills/windsurf/) |
-| **Continue.dev** | rules | [`skills/continue/`](skills/continue/) |
-| **Cline** | Memory Bank | [`skills/cline/`](skills/cline/) |
-| **Aider** | CONVENTIONS.md | [`skills/aider/`](skills/aider/) |
-| **OpenAI Codex** | AGENTS.md | [`skills/codex/`](skills/codex/) |
+---
 
-## Relationship to AGENTS.md
+## 💭 Philosophy: Repository is all you need
 
-Product Context and `AGENTS.md` are **complementary**:
+> *"Attention is all you need"* transformed AI.
+> *"Repository is all you need"* transforms how solo builders work.
+
+As a **super individual**, your repository IS your company:
+
+| Traditional Company | Your Repository |
+|---------------------|-----------------|
+| Pitch deck | `VISION.md` |
+| Customer research | `USERS.md` |
+| Product spec | `SCOPE.md` |
+| Board meeting notes | `ROADMAP.md` |
+| Knowledge base | Git history |
+| Team communication | Commit messages |
+
+**No Notion. No Confluence. No Jira. Just Git.**
+
+Your repository contains:
+- ✅ Code (what you ship)
+- ✅ Product decisions (why you ship)
+- ✅ History (how you got here)
+- ✅ AI context (how AI helps you ship faster)
+
+---
+
+## 🔗 Relationship to AGENTS.md
+
+Product Context and `AGENTS.md` are **complementary layers**:
 
 ```
-.claude/product/  = Decision layer (WHY, WHAT)  → Product/business decisions
+.claude/product/  = Decision layer (WHY, WHAT)  → Product decisions
 AGENTS.md         = Operation layer (HOW)       → Technical implementation
 ```
 
-| .claude/product/ | AGENTS.md |
-|------------------|-----------|
+| Product Context | AGENTS.md |
+|-----------------|-----------|
 | Why write this code | How to write code |
 | Business logic | Technical specs |
-| Brand voice | Coding style |
 | Product vision | Build commands |
-| "Use Vercel" (decision) | "How to deploy to Vercel" (operation) |
+| "Use Vercel" (decision) | "How to deploy" (operation) |
 
-Add a reference in your `AGENTS.md`:
+---
 
-```markdown
-## Product Context
-See `.claude/product/` for product decisions.
-Always read `ROADMAP.md` before implementing major features.
-```
+## 📐 Design Principles
 
-## Design Principles
+1. **Minimal** — 4 core files, 5 minutes to learn
+2. **Progressive** — Start small, add files as needed
+3. **ROADMAP-centric** — The roadmap is the living document
+4. **Decision-focused** — WHY/WHAT here, HOW in AGENTS.md
+5. **Markdown-first** — Human readable, AI parseable
+6. **VCS-friendly** — Code and decisions in the same commit
+7. **Tool-agnostic** — Works with any AI coding assistant
 
-1. **Minimal** - 4 core files, 5 minutes to learn
-2. **Progressive** - Start small, add files as needed
-3. **ROADMAP-centric** - The roadmap is the living document; others provide context
-4. **Decision-focused** - `.claude/product/` = decisions (WHY/WHAT), `AGENTS.md` = operations (HOW)
-5. **Markdown-first** - Human readable, AI parseable
-6. **VCS-friendly** - Code and decisions in the same commit
-7. **Tool-agnostic** - Works with any AI coding assistant
+---
 
-## Who Is This For?
+## 👤 Who Is This For?
 
 **If you're the only person building, shipping, and selling your product — this is for you.**
 
-Also works for:
+Also great for:
 - Small teams where AI does the heavy lifting
 - Open source maintainers who want contributors to understand the vision
 
 ### Not For
 
-- Libraries/frameworks (use `AGENTS.md` for technical docs)
+- Libraries/frameworks (use `AGENTS.md`)
 - One-off scripts
-- Pure marketing sites (only `BRAND.md` applies)
+- Pure marketing sites
 
-## Project Structure
+---
+
+## 📂 Project Structure
 
 ```
 product-context/
@@ -177,7 +256,9 @@ product-context/
 └── README.md
 ```
 
-## Contributing
+---
+
+## 🤝 Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
@@ -186,6 +267,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 - Changes should maintain backwards compatibility
 - Skills should work with their target AI tools
 
-## License
+---
 
-MIT
+<div align="center">
+
+**MIT License** · Made for super individuals
+
+*Repository is all you need.*
+
+</div>
