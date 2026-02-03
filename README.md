@@ -13,21 +13,21 @@
 
 ---
 
-## The Problem
+## Why?
 
-As an indie developer, your product knowledge is scattered everywhere:
+The industry loves complex workflows — connect this app to that service via MCP, automate everything, integrate all the tools.
 
-- Product vision → some note app
-- User research → some doc
-- Roadmap → some spreadsheet
-- Marketing copy → random notes
-- Business model → your head
+But do you really need all that?
 
-Your AI coding assistant can't access any of it.
+As a programmer, you already have the world's best "office software": **Git**. Version control, branching, collaboration, history, diff, blame — yet you only use it for code?
 
-## The Solution
+**Your repository can be your entire company.** Product vision, user research, roadmap, marketing copy — all in Markdown, all version-controlled, all accessible to your AI coding assistant.
 
-**Put everything in your repo.** 4 Markdown files, version-controlled, always available to AI.
+No extra tools. No complex workflows. Just your repo.
+
+---
+
+## The 4 Files
 
 ```
 .claude/product/
@@ -37,11 +37,14 @@ Your AI coding assistant can't access any of it.
 └── ROADMAP.md   # When: Phases, milestones, decisions
 ```
 
-Now when you ask AI to "add a feature", it knows:
-- **Why** the product exists
-- **Who** it's for
-- **What** to build (and what not to)
-- **Where** you are in the roadmap
+| File | Question | Content |
+|------|----------|---------|
+| `VISION.md` | Why build this? | Mission, vision, value proposition |
+| `USERS.md` | For whom? | User personas, pain points, scenarios |
+| `SCOPE.md` | What to build? | Features, non-goals, constraints |
+| `ROADMAP.md` | What's next? | Current phase, milestones, decision log |
+
+**Extensions** (add as needed): `BRAND.md`, `MARKETING.md`, `BUSINESS.md`, `METRICS.md`
 
 ---
 
@@ -60,19 +63,6 @@ cp -r product-context/templates/minimal/.claude your-project/
 ln -s /path/to/product-context/skills/claude-code ~/.claude/skills/product
 # Then run: /product init
 ```
-
----
-
-## The 4 Files
-
-| File | Question | Content |
-|------|----------|---------|
-| `VISION.md` | Why build this? | Mission, vision, value proposition |
-| `USERS.md` | For whom? | User personas, pain points, scenarios |
-| `SCOPE.md` | What to build? | Features, non-goals, constraints |
-| `ROADMAP.md` | What's next? | Current phase, milestones, decision log |
-
-**Extensions** (add as needed): `BRAND.md`, `MARKETING.md`, `BUSINESS.md`, `METRICS.md`
 
 ---
 
