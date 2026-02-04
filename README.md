@@ -25,9 +25,8 @@ A personal collection of Claude Code skills - proven workflows and automation pa
 
 | Skill | Description |
 |-------|-------------|
-| [`/init-modular`](skills/init-modular/) | Initialize modular .claude/ with agents, hooks, and rules |
-| [`/product-init`](skills/product-init/) | Initialize product documentation |
-| [`/product`](skills/product/) | Update product docs from conversation |
+| [`init-modular`](skills/init-modular/) | Initialize modular .claude/ with agents, hooks, and rules |
+| [`product-context`](skills/product-context/) | Manage product documentation (`/product-init`, `/product`) |
 
 ---
 

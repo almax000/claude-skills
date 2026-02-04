@@ -25,9 +25,8 @@
 
 | 技能 | 描述 |
 |------|------|
-| [`/init-modular`](skills/init-modular/) | 初始化模块化的 .claude/ 目录，包含 agents、hooks 和 rules |
-| [`/product-init`](skills/product-init/) | 初始化产品文档 |
-| [`/product`](skills/product/) | 从对话中更新产品文档 |
+| [`init-modular`](skills/init-modular/) | 初始化模块化的 .claude/ 目录，包含 agents、hooks 和 rules |
+| [`product-context`](skills/product-context/) | 管理产品文档（`/product-init`、`/product`）|
 
 ---
 

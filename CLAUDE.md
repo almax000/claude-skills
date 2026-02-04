@@ -29,7 +29,9 @@ This project uses `.claude/product/` for product documentation.
 
 ```
 skills/
-├── product/         # Update product docs from conversation
-├── product-init/    # Initialize product documentation
-└── init-modular/    # Initialize .claude/ structure
+├── init-modular/    # Initialize .claude/ structure
+└── product-context/ # Manage product documentation
+    ├── SKILL.md
+    ├── product.md        # /product command
+    └── product-init.md   # /product-init command
 ```
