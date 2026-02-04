@@ -1,4 +1,4 @@
-# Product Context - Claude Code Instructions
+# Claude Skills - Project Instructions
 
 ## Git Commit Rules
 
@@ -10,6 +10,26 @@
 
 ## Project Info
 
-- This is a specification project, not a product
+- This is a Claude Code skills collection
 - Primary language: English (with Chinese README translation)
 - License: MIT
+
+## Product Context
+
+This project uses `.claude/product/` for product documentation.
+
+| Document | Content |
+|----------|---------|
+| VISION.md | Skills as entry point to Claude Code customization |
+| USERS.md | Claude Code newbies, individual devs, small teams |
+| SCOPE.md | Skills only; agents/hooks/rules are generated |
+| ROADMAP.md | Current phase and decision log |
+
+## Directory Structure
+
+```
+skills/
+├── product/         # Update product docs from conversation
+├── product-init/    # Initialize product documentation
+└── init-modular/    # Initialize .claude/ structure
+```

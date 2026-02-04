@@ -1,11 +1,11 @@
 <div align="center">
 
-# 📦 Product Context
+# Claude Skills
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Markdown](https://img.shields.io/badge/Format-Markdown-orange.svg)](#the-4-files)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skills-blue.svg)](#skills)
 
-**Repository is all you need.**
+**Battle-tested skills for Claude Code**
 
 [English](README.md) | [中文](README.zh.md)
 
@@ -13,100 +13,96 @@
 
 ---
 
-## Why?
+## What is this?
 
-The industry loves complex workflows — connect this app to that service via MCP, automate everything, integrate all the tools.
+A personal collection of Claude Code skills - proven workflows and automation patterns extracted from real projects.
 
-But do you really need all that?
-
-As a programmer, you already have the world's best "office software": **Git**. Version control, branching, collaboration, history, diff, blame — yet you only use it for code?
-
-**Your repository can be your entire company.** Product vision, user research, roadmap, marketing copy — all in Markdown, all version-controlled, all accessible to your AI coding assistant.
-
-No extra tools. No complex workflows. Just your repo.
+**Philosophy**: Skills are the entry point. Through skills, you can generate agents, hooks, and rules. Instead of sharing complex configurations, share skills that create them.
 
 ---
 
-## The 4 Files
+## Skills
 
-```
-.claude/product/
-├── VISION.md    # Why: Mission, value proposition
-├── USERS.md     # Who: User personas, pain points
-├── SCOPE.md     # What: Features, non-goals
-└── ROADMAP.md   # When: Phases, milestones, decisions
-```
-
-| File | Question | Content |
-|------|----------|---------|
-| `VISION.md` | Why build this? | Mission, vision, value proposition |
-| `USERS.md` | For whom? | User personas, pain points, scenarios |
-| `SCOPE.md` | What to build? | Features, non-goals, constraints |
-| `ROADMAP.md` | What's next? | Current phase, milestones, decision log |
-
-These 4 files are **recommendations**, not requirements. Add, remove, or rename as needed. Common extensions: `BRAND.md`, `MARKETING.md`, `BUSINESS.md`, `METRICS.md` — or create your own.
+| Skill | Description |
+|-------|-------------|
+| [`/init-modular`](skills/init-modular/) | Initialize modular .claude/ with agents, hooks, and rules |
+| [`/product-init`](skills/product-init/) | Initialize product documentation |
+| [`/product`](skills/product/) | Update product docs from conversation |
 
 ---
 
 ## Quick Start
 
-### Option 1: Copy a Template
+### Installation
 
 ```bash
-git clone https://github.com/almax000/product-context.git
-cp -r product-context/templates/minimal/.claude your-project/
+# Clone and copy skills to your Claude Code config
+git clone https://github.com/almax000/claude-skills.git
+cp -r claude-skills/skills/* ~/.claude/skills/
 ```
 
-### Option 2: Claude Code Skill
+### Usage
 
-**Via Plugin Marketplace:**
-```
-/plugin marketplace add almax000/product-context
-/plugin install product
-```
-
-**Or manually:**
 ```bash
-git clone https://github.com/almax000/product-context.git
-cp -r product-context/skills/claude-code ~/.claude/skills/product
-# Then run: /product init
+# In any project, run:
+/init-modular    # Set up .claude/ structure
+/product-init    # Set up product documentation
 ```
 
 ---
 
-## Templates
+## What Gets Generated
 
-| Template | Best For |
-|----------|----------|
-| [`minimal/`](templates/minimal/) | Quick start, any project |
-| [`saas/`](templates/saas/) | SaaS, subscription services |
-| [`indie-game/`](templates/indie-game/) | Indie game development |
-| [`open-source/`](templates/open-source/) | Open source projects |
+When you run `/init-modular`, it creates:
+
+```
+.claude/
+├── agents/           # Specialized AI agents
+│   ├── code-reviewer.md
+│   ├── debugger.md
+│   └── *-researcher.md (3 tiers)
+├── hooks/            # Automated triggers
+│   └── error-lesson-*.sh
+├── rules/            # Coding standards
+│   ├── code-quality.md
+│   └── git-workflow.md
+└── settings.json     # Hook configurations
+```
 
 ---
 
-## AI Tools
+## Design Principles
 
-| Tool | Status |
-|:-----|:------:|
-| [Claude Code](skills/claude-code/) | ✅ Tested |
-| [Cursor](skills/cursor/) | 📋 Untested |
-| [Windsurf](skills/windsurf/) | 📋 Untested |
-| [Continue](skills/continue/) | 📋 Untested |
-| [Cline](skills/cline/) | 📋 Untested |
-| [Aider](skills/aider/) | 📋 Untested |
-| [Codex](skills/codex/) | 📋 Untested |
+1. **Skills as entry point** - One thing to install, everything else is generated
+2. **Battle-tested only** - Every skill comes from real project usage
+3. **Self-contained** - Each skill works independently
+4. **Generative over static** - Skills create configurations, not just copy files
+
+---
+
+## For Whom
+
+| User | Benefit |
+|------|---------|
+| **Claude Code newbies** | Ready-to-use skills that just work |
+| **Individual developers** | Save time with proven workflows |
+| **Small teams** | Consistent practices across projects |
 
 ---
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+Have a skill that works well for you? Contributions welcome!
+
+1. Fork the repository
+2. Add your skill to `skills/`
+3. Include a `SKILL.md` with clear instructions
+4. Submit a pull request
 
 ---
 
 <div align="center">
 
-**MIT License** · For indie developers
+**MIT License** · For independent developers
 
 </div>

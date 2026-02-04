@@ -1,4 +1,4 @@
-# Contributing to Product Context
+# Contributing to Claude Skills
 
 Thanks for your interest in contributing!
 
@@ -10,46 +10,43 @@ Thanks for your interest in contributing!
 - Documentation improvements
 
 ### Submit Pull Requests
-- New templates for specific project types
-- New AI tool integrations
-- Documentation fixes and improvements
+- New skills
+- Improvements to existing skills
+- Documentation fixes
 - Translations
+
+## Adding a New Skill
+
+1. Create a directory under `skills/`
+2. Add a `SKILL.md` file with:
+   - YAML frontmatter (name, description, user-invocable)
+   - Clear execution flow
+   - Examples
+
+### Skill Requirements
+
+- **Battle-tested**: Only share skills you've actually used
+- **Self-contained**: Should work independently
+- **Well-documented**: Clear instructions in SKILL.md
 
 ## Development Setup
 
 ```bash
 # Clone the repo
-git clone https://github.com/almax000/product-context.git
-cd product-context
+git clone https://github.com/almax000/claude-skills.git
+cd claude-skills
 
 # No build step required - it's all Markdown!
 ```
-
-## Guidelines
-
-### Templates
-- Keep templates minimal and focused
-- Include comments to guide users
-- Test with actual AI tools before submitting
-
-### AI Tool Integrations
-- Follow existing patterns in `agents/`
-- Include a README.md with setup instructions
-- Test with the actual tool
-
-### Documentation
-- Keep it concise
-- Use examples where possible
-- Bilingual (EN/CN) welcome
 
 ## Commit Messages
 
 Follow conventional commits:
 
 ```
-feat: add new template for mobile apps
-fix: correct typo in VISION.md spec
-docs: improve getting-started guide
+feat: add new debugging skill
+fix: correct typo in init-modular
+docs: improve installation guide
 ```
 
 ## Questions?

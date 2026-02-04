@@ -1,11 +1,11 @@
 <div align="center">
 
-# 📦 Product Context
+# Claude Skills
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Markdown](https://img.shields.io/badge/格式-Markdown-orange.svg)](#4-个核心文件)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skills-blue.svg)](#技能)
 
-**Repository is all you need.**
+**经过实战验证的 Claude Code 技能集**
 
 [English](README.md) | [中文](README.zh.md)
 
@@ -13,95 +13,91 @@
 
 ---
 
-## 为什么？
+## 这是什么？
 
-业界流行复杂的工作流——用 MCP 串联各种工具，自动化一切，集成所有服务。
+一个个人的 Claude Code 技能集合——从真实项目中提取的、经过验证的工作流和自动化模式。
 
-但你真的需要这些吗？
-
-作为程序员，你已经拥有世界上最好的「办公软件」：**Git**。版本控制、分支管理、协作、历史记录、差异对比、追溯——结果你只用它来管代码？
-
-**你的仓库可以是你的整个公司。** 产品愿景、用户调研、开发路线、营销文案——全部用 Markdown 写，全部有版本记录，AI 编程助手随时能读。
-
-不需要额外工具，不需要复杂流程，只需要你的仓库。
+**设计理念**：技能是入口。通过技能，你可以生成 agents、hooks 和 rules。与其分享复杂的配置文件，不如分享能生成它们的技能。
 
 ---
 
-## 4 个核心文件
+## 技能
 
-```
-.claude/product/
-├── VISION.md    # 为什么做：使命、价值主张
-├── USERS.md     # 给谁用：用户画像、痛点
-├── SCOPE.md     # 做什么：功能边界、不做的事
-└── ROADMAP.md   # 怎么推进：阶段、里程碑、决策记录
-```
-
-| 文件 | 回答什么问题 | 包含什么 |
-|------|-------------|---------|
-| `VISION.md` | 为什么做这个？ | 使命、愿景、价值主张 |
-| `USERS.md` | 给谁用？ | 用户画像、痛点、使用场景 |
-| `SCOPE.md` | 做什么？ | 功能范围、明确不做的事 |
-| `ROADMAP.md` | 下一步是什么？ | 当前阶段、里程碑、决策日志 |
-
-这 4 个文件是**建议**，不是强制。可以按需增删或重命名。常见扩展：`BRAND.md`、`MARKETING.md`、`BUSINESS.md`、`METRICS.md`——或者自定义你需要的。
+| 技能 | 描述 |
+|------|------|
+| [`/init-modular`](skills/init-modular/) | 初始化模块化的 .claude/ 目录，包含 agents、hooks 和 rules |
+| [`/product-init`](skills/product-init/) | 初始化产品文档 |
+| [`/product`](skills/product/) | 从对话中更新产品文档 |
 
 ---
 
 ## 快速开始
 
-### 方式一：复制模板
+### 安装
 
 ```bash
-git clone https://github.com/almax000/product-context.git
-cp -r product-context/templates/minimal/.claude your-project/
+# 克隆并复制技能到 Claude Code 配置目录
+git clone https://github.com/almax000/claude-skills.git
+cp -r claude-skills/skills/* ~/.claude/skills/
 ```
 
-### 方式二：Claude Code 技能
+### 使用
 
-**通过 Plugin Marketplace：**
-```
-/plugin marketplace add almax000/product-context
-/plugin install product
-```
-
-**或手动安装：**
 ```bash
-git clone https://github.com/almax000/product-context.git
-cp -r product-context/skills/claude-code ~/.claude/skills/product
-# 然后执行：/product init
+# 在任意项目中运行：
+/init-modular    # 设置 .claude/ 结构
+/product-init    # 设置产品文档
 ```
 
 ---
 
-## 模板
+## 生成的内容
 
-| 模板 | 适合 |
+运行 `/init-modular` 后，会生成：
+
+```
+.claude/
+├── agents/           # 专业 AI 代理
+│   ├── code-reviewer.md
+│   ├── debugger.md
+│   └── *-researcher.md (3 级研究代理)
+├── hooks/            # 自动化触发器
+│   └── error-lesson-*.sh
+├── rules/            # 编码规范
+│   ├── code-quality.md
+│   └── git-workflow.md
+└── settings.json     # Hook 配置
+```
+
+---
+
+## 设计原则
+
+1. **技能是入口** — 安装一个东西，其他的都自动生成
+2. **仅限实战验证** — 每个技能都来自真实项目
+3. **自包含** — 每个技能独立运行
+4. **生成优于静态** — 技能创建配置，而不是简单复制文件
+
+---
+
+## 适合谁
+
+| 用户 | 收益 |
 |------|------|
-| [`minimal/`](templates/minimal/) | 快速开始，通用项目 |
-| [`saas/`](templates/saas/) | SaaS、订阅制产品 |
-| [`indie-game/`](templates/indie-game/) | 独立游戏 |
-| [`open-source/`](templates/open-source/) | 开源项目 |
-
----
-
-## AI 工具支持
-
-| 工具 | 状态 |
-|:-----|:----:|
-| [Claude Code](skills/claude-code/) | ✅ 已验证 |
-| [Cursor](skills/cursor/) | 📋 待验证 |
-| [Windsurf](skills/windsurf/) | 📋 待验证 |
-| [Continue](skills/continue/) | 📋 待验证 |
-| [Cline](skills/cline/) | 📋 待验证 |
-| [Aider](skills/aider/) | 📋 待验证 |
-| [Codex](skills/codex/) | 📋 待验证 |
+| **Claude Code 新手** | 开箱即用的技能 |
+| **个人开发者** | 用经过验证的工作流节省时间 |
+| **小团队** | 跨项目的一致实践 |
 
 ---
 
 ## 参与贡献
 
-参见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+有个好用的技能？欢迎贡献！
+
+1. Fork 仓库
+2. 在 `skills/` 添加你的技能
+3. 包含一个清晰的 `SKILL.md`
+4. 提交 Pull Request
 
 ---
 
