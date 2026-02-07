@@ -34,6 +34,7 @@ Create a starter UI spec for the current project.
 3. List all screens (`.screen[id]`) with their labels
 4. List all open annotations with their target screen/flow, author, priority
 5. Present a concise summary to the user
+6. Open the file in the browser: `open .claude/design/ui-spec.html`
 
 ### Annotate: `/ui-spec annotate`
 
