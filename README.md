@@ -27,6 +27,7 @@ A personal collection of Claude Code skills - proven workflows and automation pa
 |-------|-------------|
 | [`init-modular`](skills/init-modular/) | Initialize modular .claude/ with agents, hooks, and rules |
 | [`product-context`](skills/product-context/) | Manage product documentation (`/product-init`, `/product`) |
+| [`ui-spec`](skills/ui-spec/) | Manage UI spec documents with annotation workflow |
 
 ---
 
@@ -46,6 +47,8 @@ cp -r claude-skills/skills/* ~/.claude/skills/
 # In any project, run:
 /init-modular    # Set up .claude/ structure
 /product-init    # Set up product documentation
+/ui-spec init    # Create UI spec for your project
+/ui-spec         # View current UI spec
 ```
 
 ---

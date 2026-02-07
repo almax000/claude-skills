@@ -27,6 +27,7 @@
 |------|------|
 | [`init-modular`](skills/init-modular/) | 初始化模块化的 .claude/ 目录，包含 agents、hooks 和 rules |
 | [`product-context`](skills/product-context/) | 管理产品文档（`/product-init`、`/product`）|
+| [`ui-spec`](skills/ui-spec/) | 管理 UI 规格文档，支持批注工作流 |
 
 ---
 
@@ -46,6 +47,8 @@ cp -r claude-skills/skills/* ~/.claude/skills/
 # 在任意项目中运行：
 /init-modular    # 设置 .claude/ 结构
 /product-init    # 设置产品文档
+/ui-spec init    # 为项目创建 UI 规格文档
+/ui-spec         # 查看当前 UI 规格
 ```
 
 ---
