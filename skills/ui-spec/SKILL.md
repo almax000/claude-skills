@@ -1,9 +1,3 @@
----
-name: ui-spec
-description: Manage UI spec documents with annotation workflow
-user-invocable: false
----
-
 # UI Spec Skill
 
 Manages UI spec design documents. Supports viewing, annotating, updating screens, and managing annotations through an interactive browser-based workflow.
