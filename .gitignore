@@ -1,1 +1,9 @@
+# OS
 .DS_Store
+
+# Claude Code local files
+.claude/
+CLAUDE.md
+
+# Tool artifacts
+.hive/
