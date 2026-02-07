@@ -29,10 +29,13 @@ This project uses `.claude/product/` for product documentation.
 
 ```
 skills/
-├── init-modular/    # Initialize .claude/ structure
-├── product-context/ # Manage product documentation
-└── ui-spec/         # UI spec management with annotations
-    ├── SKILL.md
-    ├── product.md        # /product command
-    └── product-init.md   # /product-init command
+├── init-modular/        # Initialize .claude/ structure
+├── product-context/     # Manage product documentation
+│   ├── SKILL.md
+│   ├── product.md       # /product command
+│   └── product-init.md  # /product-init command
+└── ui-spec/             # UI spec management with annotations
+    ├── SKILL.md         # Reference docs (HTML conventions, templates)
+    ├── ui-spec.md       # /ui-spec command (7 modes)
+    └── CONTEXT.md       # Development context & optimization roadmap
 ```
