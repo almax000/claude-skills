@@ -98,10 +98,88 @@ The UI spec supports dark/light themes via CSS variables. When adding or modifyi
 - Use `var(--accent)` for the primary theme color
 - Character/brand-specific colors can remain as inline styles
 
+## Viewport System
+
+### Viewport Sizes
+
+| Name | Width | Use case |
+|------|-------|----------|
+| Mobile | 375px | Phone (default) |
+| Tablet | 768px | Tablet portrait |
+| Desktop | 1440px | Desktop browser |
+
+### Viewport Toggle (Toolbar)
+
+The toolbar includes three viewport buttons that switch the container width:
+
+```html
+<!-- In toolbar, after existing buttons -->
+<div class="viewport-toggle">
+  <button class="vp-btn active" data-vp="mobile" title="Mobile 375px">📱</button>
+  <button class="vp-btn" data-vp="tablet" title="Tablet 768px">📋</button>
+  <button class="vp-btn" data-vp="desktop" title="Desktop 1440px">🖥️</button>
+</div>
+```
+
+Switching viewport sets a `data-viewport` attribute on `<body>` and adjusts `.screen` width:
+
+```css
+/* Default: mobile */
+.screen-body { width: 375px; }
+
+body[data-viewport="tablet"] .screen-body { width: 768px; }
+body[data-viewport="desktop"] .screen-body { width: 1440px; }
+```
+
+Screens use **flex/relative layout** inside `.screen-body` so content reflows naturally at wider widths. Use percentage widths and `max-width` where appropriate.
+
+### Viewport Group (Optional)
+
+When mobile and desktop layouts are **structurally different** (e.g., bottom tab bar vs sidebar navigation), use a viewport group to show multiple variants:
+
+```html
+<div class="viewport-group" id="screen-dashboard-variants">
+  <div class="screen" id="screen-dashboard-mobile" data-viewport="mobile">
+    <div class="screen-label">Dashboard (Mobile)</div>
+    <div class="screen-body">
+      <!-- Bottom tab bar layout -->
+    </div>
+  </div>
+  <div class="screen" id="screen-dashboard-desktop" data-viewport="desktop">
+    <div class="screen-label">Dashboard (Desktop)</div>
+    <div class="screen-body">
+      <!-- Sidebar layout -->
+    </div>
+  </div>
+</div>
+```
+
+```css
+.viewport-group {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+}
+.viewport-group .screen { flex: none; }
+```
+
+**Rule**: Only use viewport-group when layouts are structurally incompatible. For most screens, CSS reflow via the viewport toggle is sufficient.
+
+## Source Code Reading Conventions (for capture mode)
+
+When generating screens from an existing project's source code:
+
+1. **Project config** → `package.json`, framework config → identify tech stack
+2. **Router/navigation** → route definitions → build page list
+3. **Page components** → component tree, layout structure, conditional rendering
+4. **Style sources** → CSS modules, Tailwind classes, styled-components, theme files → extract colors, spacing, typography
+5. **Shared components** → design system primitives (Button, Card, Input, etc.) → reuse patterns
+
+The goal is **maximum-effort visual fidelity** from source code alone — no screenshots, no running the app. Structure must be faithful; visual styling should match as closely as static HTML/CSS allows.
+
 ## Quick Start
 
 To create a UI spec for your project:
 
 1. Run `/ui-spec init` to generate a starter `ui-spec.html`
-2. Open it in a browser to view and annotate
-3. Use `/ui-spec` to manage it from Claude Code
+2. Run `/ui-spec capture` to generate screens from an existing project's source code
+3. Open it in a browser to view and annotate
+4. Use `/ui-spec` to manage it from Claude Code

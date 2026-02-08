@@ -3,7 +3,7 @@ user-invocable: true
 description: Create, view, annotate, and update UI spec documents
 arguments:
   - name: mode
-    description: "Command mode: init, (empty)=view, annotate, update, add-screen, resolve, annotations"
+    description: "Command mode: init, capture, (empty)=view, annotate, update, add-screen, resolve, annotations"
     required: false
 ---
 
@@ -21,11 +21,40 @@ Create a starter UI spec for the current project.
 2. Create `.claude/design/` directory if it doesn't exist
 3. Generate `ui-spec.html` with:
    - Dark/light theme toggle
+   - Viewport toggle (Mobile 375px / Tablet 768px / Desktop 1440px) — see SKILL.md
    - Interactive annotation system (pencil button, save button)
    - Badge counter for open annotations
    - Initial flow sections and screen placeholders based on user input
+   - Screen bodies use flex/relative layout for natural reflow across viewports
 4. Include the standard CSS variable system for theming
-5. Tell the user to open the file in a browser to view and annotate
+5. Include viewport switching CSS and JS (see SKILL.md for template)
+6. Tell the user to open the file in a browser to view and annotate
+
+### Capture: `/ui-spec capture`
+
+Generate UI spec screens from an existing project's source code.
+
+1. **Discover project structure**:
+   - Read `package.json` (or equivalent) → identify framework (React, Vue, Next.js, etc.)
+   - Read router/navigation config → build a list of all pages/routes
+   - Read theme/design-token files → extract color palette, typography, spacing
+2. **Present page list** to user, ask which pages to capture (or all)
+3. **For each selected page**:
+   - Read the page component and its key child components
+   - Read associated style files (CSS modules, Tailwind config, styled-components, etc.)
+   - Understand the component tree: layout, conditional sections, data display patterns
+   - Identify shared UI primitives (Button, Card, Input, etc.) and their visual style
+4. **Generate screens**:
+   - Create (or update) `.claude/design/ui-spec.html`
+   - If the file doesn't exist, scaffold it first (same as `init` mode, including viewport toggle)
+   - For each page, generate a `<div class="screen">` with HTML/CSS that faithfully reproduces the layout and visual style
+   - Use CSS variables aligned with the project's actual color palette
+   - Generate responsive layout by default (CSS reflow via viewport toggle)
+   - When mobile and desktop layouts are structurally different, use viewport-group (see SKILL.md)
+5. **Group screens into flows** based on route structure or user input
+6. Open the file in the browser for review
+
+**Fidelity goal**: Maximum-effort reproduction from source code alone. Structure must be faithful; visual styling should match as closely as static HTML/CSS allows. This is not pixel-perfect — it's "best effort from code reading."
 
 ### View (default): `/ui-spec`
 
@@ -67,8 +96,10 @@ Add a new screen to an existing flow.
 2. Ask which flow to add to (if not specified)
 3. Generate a descriptive `id` following the `screen-{name}` convention
 4. Create screen content based on conversation context
-5. Insert the new screen in the appropriate position within `.screens`
-6. Add an arrow (`<div class="arrow">&rarr;</div>`) between screens if needed
+5. Use flex/relative layout in `.screen-body` for responsive reflow
+6. If the screen has structurally different layouts at different viewports, use a viewport-group (see SKILL.md)
+7. Insert the new screen in the appropriate position within `.screens`
+8. Add an arrow (`<div class="arrow">&rarr;</div>`) between screens if needed
 
 ### Resolve: `/ui-spec resolve`
 
