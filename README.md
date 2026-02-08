@@ -43,32 +43,44 @@ cp -r claude-skills/skills/* ~/.claude/skills/
 
 ### Usage
 
+#### init-modular
+
+Set up a modular `.claude/` directory with agents, hooks, and rules:
+
 ```bash
-# In any project, run:
-/init-modular    # Set up .claude/ structure
-/product-init    # Set up product documentation
-/ui-spec init    # Create UI spec for your project
-/ui-spec         # View current UI spec
+/init-modular
 ```
 
----
-
-## What Gets Generated
-
-When you run `/init-modular`, it creates:
+Generates:
 
 ```
 .claude/
-├── agents/           # Specialized AI agents
-│   ├── code-reviewer.md
-│   ├── debugger.md
-│   └── *-researcher.md (3 tiers)
-├── hooks/            # Automated triggers
-│   └── error-lesson-*.sh
-├── rules/            # Coding standards
-│   ├── code-quality.md
-│   └── git-workflow.md
+├── agents/           # code-reviewer, debugger, 3-tier researchers
+├── hooks/            # Error lesson reminders
+├── rules/            # Code quality, git workflow
 └── settings.json     # Hook configurations
+```
+
+#### product-context
+
+Set up and manage product documentation:
+
+```bash
+/product-init    # Create product docs (VISION, USERS, SCOPE, ROADMAP)
+/product         # View and update product context
+```
+
+#### ui-spec
+
+Create and manage UI spec documents with interactive annotation workflow:
+
+```bash
+/ui-spec init       # Create UI spec with viewport toggle and annotation system
+/ui-spec capture    # Generate screens from existing project source code
+/ui-spec            # View current UI spec (opens in browser)
+/ui-spec annotate   # Add annotation from conversation context
+/ui-spec update     # Update screen content
+/ui-spec add-screen # Add a new screen to a flow
 ```
 
 ---
@@ -89,17 +101,6 @@ When you run `/init-modular`, it creates:
 | **Claude Code newbies** | Ready-to-use skills that just work |
 | **Individual developers** | Save time with proven workflows |
 | **Small teams** | Consistent practices across projects |
-
----
-
-## Contributing
-
-Have a skill that works well for you? Contributions welcome!
-
-1. Fork the repository
-2. Add your skill to `skills/`
-3. Include a `SKILL.md` with clear instructions
-4. Submit a pull request
 
 ---
 

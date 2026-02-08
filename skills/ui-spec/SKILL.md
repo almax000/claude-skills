@@ -89,6 +89,20 @@ Claude:  Proposes changes based on annotation context → /ui-spec update
 ### Badge counter
 The pencil button shows a red badge with the count of open (unresolved) annotations.
 
+## Keyboard Shortcuts
+
+| Key | Action |
+|-----|--------|
+| `A` | Toggle annotate mode (same as pencil button) |
+| `S` | Save/download HTML (same as save button) |
+| `T` | Toggle dark/light theme |
+| `1` | Switch to Mobile viewport (375px) |
+| `2` | Switch to Tablet viewport (768px) |
+| `3` | Switch to Desktop viewport (1440px) |
+| `Escape` | Cancel annotation form / exit annotate mode |
+
+Shortcuts are disabled when the annotation form is focused (to avoid conflicts with typing).
+
 ## Theme System
 
 The UI spec supports dark/light themes via CSS variables. When adding or modifying content:

@@ -43,32 +43,44 @@ cp -r claude-skills/skills/* ~/.claude/skills/
 
 ### 使用
 
+#### init-modular
+
+创建模块化的 `.claude/` 目录，包含 agents、hooks 和 rules：
+
 ```bash
-# 在任意项目中运行：
-/init-modular    # 设置 .claude/ 结构
-/product-init    # 设置产品文档
-/ui-spec init    # 为项目创建 UI 规格文档
-/ui-spec         # 查看当前 UI 规格
+/init-modular
 ```
 
----
-
-## 生成的内容
-
-运行 `/init-modular` 后，会生成：
+生成：
 
 ```
 .claude/
-├── agents/           # 专业 AI 代理
-│   ├── code-reviewer.md
-│   ├── debugger.md
-│   └── *-researcher.md (3 级研究代理)
-├── hooks/            # 自动化触发器
-│   └── error-lesson-*.sh
-├── rules/            # 编码规范
-│   ├── code-quality.md
-│   └── git-workflow.md
+├── agents/           # code-reviewer、debugger、3 级研究代理
+├── hooks/            # 错误教训提醒
+├── rules/            # 代码质量、git 工作流
 └── settings.json     # Hook 配置
+```
+
+#### product-context
+
+创建和管理产品文档：
+
+```bash
+/product-init    # 创建产品文档（VISION、USERS、SCOPE、ROADMAP）
+/product         # 查看和更新产品上下文
+```
+
+#### ui-spec
+
+创建和管理 UI 规格文档，支持交互式批注工作流：
+
+```bash
+/ui-spec init       # 创建 UI 规格文档，包含视口切换和批注系统
+/ui-spec capture    # 从现有项目源码生成屏幕
+/ui-spec            # 查看当前 UI 规格（在浏览器中打开）
+/ui-spec annotate   # 从对话上下文添加批注
+/ui-spec update     # 更新屏幕内容
+/ui-spec add-screen # 向流程添加新屏幕
 ```
 
 ---
@@ -89,17 +101,6 @@ cp -r claude-skills/skills/* ~/.claude/skills/
 | **Claude Code 新手** | 开箱即用的技能 |
 | **个人开发者** | 用经过验证的工作流节省时间 |
 | **小团队** | 跨项目的一致实践 |
-
----
-
-## 参与贡献
-
-有个好用的技能？欢迎贡献！
-
-1. Fork 仓库
-2. 在 `skills/` 添加你的技能
-3. 包含一个清晰的 `SKILL.md`
-4. 提交 Pull Request
 
 ---
 
