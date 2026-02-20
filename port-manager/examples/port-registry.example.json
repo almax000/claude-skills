@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-01-01",
+  "port_ranges": {
+    "reserved": {
+      "min": 1024,
+      "max": 8999,
+      "description": "Project service ports"
+    },
+    "available": {
+      "min": 9000,
+      "max": 9999,
+      "description": "Available allocation pool"
+    },
+    "system": {
+      "min": 1,
+      "max": 1023,
+      "description": "System reserved (do not use)"
+    }
+  },
+  "ports": {
+    "3000": {
+      "project": "my-app",
+      "service": "Backend API",
+      "added": "2026-01-01"
+    },
+    "5173": {
+      "project": "my-app",
+      "service": "Frontend (Vite)",
+      "added": "2026-01-01"
+    },
+    "5432": {
+      "project": "my-app",
+      "service": "PostgreSQL",
+      "added": "2026-01-01"
+    }
+  }
+}
