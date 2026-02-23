@@ -1,4 +1,5 @@
 ---
+name: ui-spec
 user-invocable: true
 description: Create, view, annotate, and update UI spec documents
 arguments:

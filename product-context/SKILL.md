@@ -1,9 +1,3 @@
----
-name: product-context
-description: Manage product documentation in .claude/product/
-user-invocable: false
----
-
 # Product Context
 
 Manage product documentation in `.claude/product/` directory.
