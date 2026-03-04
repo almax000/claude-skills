@@ -111,42 +111,34 @@ Create a starter UI spec for the current project.
    - Screen bodies use flex/relative layout for natural reflow across viewports
 4. Include the standard CSS variable system for theming
 5. Include viewport switching CSS and JS (see SKILL.md for template)
-6. Tell the user to open the file in a browser to view and annotate
+6. Call `mcp__ui-spec__open_spec` to open the spec in the browser
 
 ### Capture: `/ui-spec capture`
 
 Generate UI spec screens from an existing project's source code.
 
 1. **Discover project structure**:
-   - Read `package.json` (or equivalent) → identify framework (React, Vue, Next.js, etc.)
+   - Read `package.json` (or equivalent) → identify framework (React, Vue, Next.js, Electron, etc.)
    - Read router/navigation config → build a list of all pages/routes
    - Read theme/design-token files → extract color palette, typography, spacing
 2. **Present page list** to user, ask which pages to capture (or all)
-3. **For each selected page** (this is the critical step — read thoroughly):
-   - Read the page component source code **in full**
-   - **Recursively trace imports**: for every child component used on the page, read its source too — don't guess what `<SidePanel>` or `<UserCard>` looks like, open the file and read it
-   - Read associated style files (CSS modules, Tailwind config, styled-components, etc.) — extract **exact values** (colors, spacing, font sizes, border radius), not approximations
-   - For Tailwind projects: read `tailwind.config` and resolve custom classes to actual CSS values
-   - Catalog every visible element: headers, labels, buttons, icons, badges, dividers, empty states — if it renders, it goes in the spec
-   - Note **actual text content** from the code (button labels, placeholder text, headings) — never substitute with generic placeholders like "Lorem ipsum" or "Button"
-4. **Generate screens** (1:1 replication, not interpretation):
+3. **For each selected page**:
+   - Read the page component source code → component tree, layout structure, conditional rendering
+   - Read associated style files (CSS modules, Tailwind config, styled-components, etc.) → extract colors, spacing, typography
+   - Read shared components (Button, Card, Input, etc.) → reuse patterns
+4. **Generate screens**:
    - Create (or update) `.claude/design/ui-spec.html`
    - If the file doesn't exist, scaffold it first (same as `init` mode, including viewport toggle)
-   - For each page, generate a `<div class="screen">` that **replicates the actual UI as it would render** — same layout, same elements, same text, same visual hierarchy
-   - Use CSS variables aligned with the project's actual color palette (extract exact hex/rgb values from source)
+   - For each page, generate a `<div class="screen">` that faithfully replicates the UI
+   - Use CSS variables aligned with the project's actual color palette
    - Generate responsive layout by default (CSS reflow via viewport toggle)
    - When mobile and desktop layouts are structurally different, use viewport-group (see SKILL.md)
 5. **Group screens into flows** based on route structure or user input
-6. Open the file in the browser for review
+6. Call `mcp__ui-spec__open_spec` to open the spec in the browser for review
 
-**Fidelity principle — STRICT**:
-- This is **1:1 replication from source code**, not creative interpretation
-- Every element in the component tree that renders visually must appear in the spec
-- Use the **exact colors, spacing, and typography** from the project's styles — don't approximate or "improve"
-- Use the **actual text labels** from the code — never invent placeholder text
-- If a component is complex, read its source file; don't guess its appearance
-- When in doubt, read more code rather than making assumptions
-- The goal is: someone looking at the spec should see what the real app looks like, not a "cleaned up" or "simplified" version
+**Electron desktop apps**: See SKILL.md "Desktop App Conventions — Electron" section for main process config, platform CSS, chrome vs content theming, and desktop viewport sizes (Compact 800px / Default 1200px / Wide 1600px).
+
+**Fidelity principle**: Maximum-effort visual fidelity from source code alone — no screenshots, no running the app. Structure must be faithful; visual styling should match as closely as static HTML/CSS allows.
 
 ## Important Rules
 

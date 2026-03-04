@@ -44,7 +44,7 @@ When adding screens, choose IDs that clearly describe the screen's purpose.
 
 | Attribute | Required | Values |
 |-----------|----------|--------|
-| `data-author` | Yes | `alice`, `claude`, etc. |
+| `data-author` | Yes | `jojo`, `claude`, etc. |
 | `data-date` | Yes | `YYYY-MM-DD` |
 | `data-priority` | No | `high`, `medium`, `low` |
 | `data-status` | No | `open` (default), `resolved`, `wontfix` |
@@ -61,6 +61,20 @@ When adding screens, choose IDs that clearly describe the screen's purpose.
 </div>
 ```
 
+## MCP Server Integration
+
+The `ui-spec` MCP server provides tools for zero-friction spec management:
+
+| Tool | Purpose |
+|------|---------|
+| `open_spec` | Start HTTP server + open spec in browser |
+| `get_status` | Summary: flows, screens, annotation counts |
+| `list_annotations` | List annotations with screen/flow context |
+| `resolve_annotation` | Mark an annotation as resolved by index |
+
+The server auto-starts with Claude Code (configured in `~/.mcp.json`).
+HTTP endpoint on `localhost:9012` handles browser save via `POST /save`.
+
 ## Interactive Annotation Mode
 
 The UI spec has a built-in interactive annotation tool in the browser:
@@ -70,21 +84,15 @@ The UI spec has a built-in interactive annotation tool in the browser:
 3. **Click** any element to open the annotation form
 4. Write feedback, set priority, and save
 5. Annotation is injected into the DOM as a real `.annotation` div at the right position
-6. Click **save button** to download the modified HTML with all annotations embedded
-7. User replaces `.claude/design/ui-spec.html` with the download
-8. Claude reads the file and sees all annotations in their spatial context
+6. Press **Cmd+S** (Mac) / **Ctrl+S** (Windows) or click the **save button** to save in-place
 
 ### Workflow: User annotates → Claude reads → Claude executes
 
-```
-Browser: User clicks elements, adds annotations, downloads HTML
-         ↓
-File:    User replaces ui-spec.html with downloaded version
-         ↓
-Claude:  /ui-spec → reads file → sees annotations inside their parent screens
-         ↓
-Claude:  Proposes changes based on annotation context → /ui-spec update
-```
+1. Claude calls `mcp__ui-spec__open_spec()` → HTTP server starts + browser opens
+2. User annotates in browser → presses Cmd+S → saved in-place via POST /save
+3. Claude calls `mcp__ui-spec__list_annotations()` → sees all open annotations
+4. Claude processes annotations → updates spec
+5. Claude calls `mcp__ui-spec__resolve_annotation(n)` → marks as done
 
 ### Badge counter
 The pencil button shows a red badge with the count of open (unresolved) annotations.
@@ -93,15 +101,18 @@ The pencil button shows a red badge with the count of open (unresolved) annotati
 
 | Key | Action |
 |-----|--------|
+| `Cmd+S` / `Ctrl+S` | Save spec in-place (via server) or download (file:// fallback) |
 | `A` | Toggle annotate mode (same as pencil button) |
 | `S` | Save/download HTML (same as save button) |
 | `T` | Toggle dark/light theme |
+| `L` | Cycle through languages |
 | `1` | Switch to Mobile viewport (375px) |
 | `2` | Switch to Tablet viewport (768px) |
 | `3` | Switch to Desktop viewport (1440px) |
 | `Escape` | Cancel annotation form / exit annotate mode |
 
 Shortcuts are disabled when the annotation form is focused (to avoid conflicts with typing).
+`Cmd+S` / `Ctrl+S` works even in form fields.
 
 ## Theme System
 
@@ -183,22 +194,39 @@ When generating screens from an existing project's source code:
 
 1. **Project config** → `package.json`, framework config → identify tech stack
 2. **Router/navigation** → route definitions → build page list
-3. **Page components** → read the full source of each page component, then **recursively read every imported child component** — never assume what a component looks like without reading its file
-4. **Style sources** → CSS modules, Tailwind classes, styled-components, theme files → extract **exact** colors, spacing, typography, border-radius values — no approximations
-5. **Shared components** → design system primitives (Button, Card, Input, etc.) → read their source to understand exact rendering, don't substitute generic versions
+3. **Page components** → component tree, layout structure, conditional rendering
+4. **Style sources** → CSS modules, Tailwind classes, styled-components, theme files → extract colors, spacing, typography
+5. **Shared components** → design system primitives (Button, Card, Input, etc.) → reuse patterns
 
-### The 1:1 Replication Rule
+The goal is **maximum-effort visual fidelity** from source code alone — no screenshots, no running the app. Structure must be faithful; visual styling should match as closely as static HTML/CSS allows.
 
-For projects with an existing frontend, capture mode is a **strict replication** task:
+## Desktop App Conventions — Electron (for capture mode)
 
-- **Read, don't imagine**: If you haven't read the component file, you don't know what it looks like. Open it.
-- **Exact values**: Use the actual `#hex` colors, `px`/`rem` spacing, and font sizes from the source. Don't round, normalize, or "improve" them.
-- **Actual text**: Use the real button labels, headings, placeholder text from the code. Never substitute with "Button", "Title", or "Lorem ipsum".
-- **Complete elements**: Every visible element (icons, badges, dividers, empty states, tooltips) that the component renders should appear in the spec. Don't simplify by removing "minor" elements.
-- **Faithful layout**: Replicate the actual flex/grid/positioning from the styles. Don't rearrange elements for "better" aesthetics.
-- **No editorial changes**: Don't "fix" inconsistencies, improve spacing, or redesign anything. Replicate as-is.
+When generating screens for an Electron desktop app:
 
-The goal is: someone comparing the spec to the running app should find them visually equivalent. This is code-reading forensics, not design.
+1. **Main process** → Read `electron/main/index.ts` (or similar) for window chrome config:
+   - `titleBarStyle` (`hidden`, `hiddenInset`) → affects traffic light / title bar area
+   - `trafficLightPosition` → macOS traffic light placement
+   - `titleBarOverlay` → Windows/Linux native control buttons
+   - `minWidth`/`minHeight` → minimum viewport sizes
+
+2. **Platform CSS** → Detect `.platform-darwin`, `.platform-win32`, `.platform-linux` classes
+   - Generate platform variant annotations if layouts differ significantly
+   - macOS: traffic lights in sidebar area, no header padding
+   - Windows: `titleBarOverlay` occupies top-right, extra header `padding-right`
+
+3. **Chrome vs Content theming** → Identify theme-independent variables (e.g., `--chrome-*`)
+   - "Always-dark chrome" pattern: sidebar + header use fixed dark colors
+   - Content area follows theme toggle (light/dark)
+   - Capture both theme states for content area; chrome stays constant
+
+4. **Viewport sizes** → Use desktop-appropriate sizes instead of mobile defaults:
+
+| Name | Width | Use case |
+|------|-------|----------|
+| Compact | 800px | Minimum window size |
+| Default | 1200px | Typical desktop |
+| Wide | 1600px | Large displays |
 
 ## Quick Start
 
