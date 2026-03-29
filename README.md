@@ -22,13 +22,17 @@ Each skill in this collection solves a specific workflow gap in Claude Code, ext
 
 ## Skills
 
+### Project Lifecycle
+
+- **[project](./project/)** — Unified project lifecycle manager. Register, initialize, track status, archive, and health-check all local projects through a single `/project` command and a JSON registry. Absorbs init-modular and product-context into a streamlined pipeline.
+
 ### Project Setup
 
-- **[init-modular](./init-modular/)** — One command sets up agents, hooks, and rules in `.claude/`. Includes a 3-tier research team (Opus/Sonnet/Haiku), error-tracking hooks, and code quality rules.
+- **[init-modular](./init-modular/)** — One command sets up agents, hooks, and rules in `.claude/`. Includes a 3-tier research team (Opus/Sonnet/Haiku), error-tracking hooks, and code quality rules. *(Now part of `/project new` — still works standalone.)*
 
 ### Product Management
 
-- **[product-context](./product-context/)** — Guided conversation creates 4 product docs (Vision, Users, Scope, Roadmap) in your repo. AI auto-proposes updates when decisions are made.
+- **[product-context](./product-context/)** — Guided conversation creates 4 product docs (Vision, Users, Scope, Roadmap) in your repo. AI auto-proposes updates when decisions are made. *(Init phase now part of `/project new` — `/product update` still works standalone.)*
 
 ### Planning
 
@@ -71,7 +75,7 @@ Each skill is self-contained — install only what you need.
 
 1. Copy a skill folder to `~/.claude/skills/`
 2. Restart Claude Code (or start a new session)
-3. Use the slash command (e.g., `/init-modular`, `/product`, `/ui-spec`, `/plan-debate`, `/web-researcher`)
+3. Use the slash command (e.g., `/project`, `/init-modular`, `/product`, `/ui-spec`, `/plan-debate`, `/web-researcher`)
 
 Skills contain:
 - `SKILL.md` — Reference documentation Claude reads for context
