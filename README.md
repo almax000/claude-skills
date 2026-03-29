@@ -30,9 +30,17 @@ Each skill in this collection solves a specific workflow gap in Claude Code, ext
 
 - **[product-context](./product-context/)** — Guided conversation creates 4 product docs (Vision, Users, Scope, Roadmap) in your repo. AI auto-proposes updates when decisions are made.
 
+### Planning
+
+- **[plan-debate](./plan-debate/)** — Multi-agent debate pipeline for implementation plans. A planner drafts, a critic reviews, and revisions iterate — producing vetted plans before any code is written.
+
 ### Design
 
 - **[ui-spec](./ui-spec/)** — Interactive HTML design spec with built-in annotation system. Click elements to leave feedback, Claude reads annotations in spatial context and updates the design.
+
+### Research
+
+- **[web-researcher](./web-researcher/)** — Deep web research with structured synthesis. Combines Context7, WebSearch, and WebFetch to produce cited research reports with comparison tables.
 
 ### Developer Tools
 
@@ -63,7 +71,7 @@ Each skill is self-contained — install only what you need.
 
 1. Copy a skill folder to `~/.claude/skills/`
 2. Restart Claude Code (or start a new session)
-3. Use the slash command (e.g., `/init-modular`, `/product`, `/ui-spec`)
+3. Use the slash command (e.g., `/init-modular`, `/product`, `/ui-spec`, `/plan-debate`, `/web-researcher`)
 
 Skills contain:
 - `SKILL.md` — Reference documentation Claude reads for context
